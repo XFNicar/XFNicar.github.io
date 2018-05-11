@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YanYi&#39;s Blog">
 <meta property="og:description" content="用很多时候,项目中会出现一系列元素排布在一系列圆环至上,该文章将给到一个用UIColectionView来实现该需求的基本思路,该方案API简单易理解,使用方便。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-09T17:21:22.812Z">
+<meta property="og:updated_time" content="2018-05-11T03:11:05.782Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用CollectionView实现环形布局">
 <meta name="twitter:description" content="用很多时候,项目中会出现一系列元素排布在一系列圆环至上,该文章将给到一个用UIColectionView来实现该需求的基本思路,该方案API简单易理解,使用方便。">
@@ -373,10 +373,9 @@
 
 
 <ul>
-<li><font color="red" ,="" size="3"><strong>当前组的扇形（环形）半径</strong></font>
-
+<li><p><strong>当前组的扇形（环形）半径</strong></p>
 <ul>
-<li><p><font color="#006666"><strong>- (<font color="#0000dd"> CGFloat </font> )flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;</strong></font><br></p>
+<li><p>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;</p>
 <ul>
 <li><p>返回参数类型值说明如下：</p>
 <pre><code>CGFloat 返回当前组扇形（环形）的半径 (单位: π)
@@ -385,10 +384,9 @@
 </li>
 </ul>
 </li>
-<li><font color="red" ,="" size="3"><strong>当前位置Cell的大小（size）</strong></font>
-
+<li><p><strong>当前位置Cell的大小（size）</strong></p>
 <ul>
-<li><p><font color="#006666"><strong>- (<font color="#0000dd">CGSize </font> )flowLayout:(XFCyclicAnnularFlowLayout <em>)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath </em>)indexPath;</strong></font><br></p>
+<li><p>- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;</p>
 <ul>
 <li><p>返回参数类型值说明如下：</p>
 <pre><code>CGSize  返回当前位置（indexPath）cell的大小
@@ -399,10 +397,9 @@
 </li>
 </ul>
 <ul>
-<li><font color="red" ,="" size="3"><strong>当前组的弧度范围（即该组展开弧度）</strong></font>
-
+<li><p><strong>当前组的弧度范围（即该组展开弧度）</strong></p>
 <ul>
-<li><p><font color="#006666"><strong>- (<font color="#0000dd">CGFloat </font>)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;</strong></font><br></p>
+<li><p>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;</p>
 <ul>
 <li><p>返回参数类型值说明如下：</p>
 <pre><code>CGFloat  返回当前组元素在视图上展开的弧度范围
@@ -411,10 +408,9 @@
 </li>
 </ul>
 </li>
-<li><font color="red" ,="" size="3"><strong>该组元素在扇形区域内是否顺时针展开</strong></font>
-
+<li><p><strong>该组元素在扇形区域内是否顺时针展开</strong></p>
 <ul>
-<li><p><font color="#006666"><strong>- (<font color="#0000dd"> BOOL </font>)flowLayout:(XFCyclicAnnularFlowLayout*)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;</strong></font><br></p>
+<li><p>- (BOOL )flowLayout:(XFCyclicAnnularFlowLayout*)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;</p>
 <ul>
 <li><p>返回参数类型值说明如下：</p>
 <pre><code>BOOL  该返回值设定视图当前环形中cell是顺时针依次排列，还是逆时针依次排列，默认是顺时针
@@ -423,10 +419,9 @@
 </li>
 </ul>
 </li>
-<li><font color="red" ,="" size="3"><strong>元素朝向</strong></font>
-
+<li><p><strong>元素朝向</strong></p>
 <ul>
-<li><p><font color="#006666"><strong>- (<font color="#0000dd">XFCyclicAnnularItemOrientation</font> )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;</strong></font><br></p>
+<li><p>- (XFCyclicAnnularItemOrientation )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;</p>
 <ul>
 <li>返回参数类型值说明如下：</li>
 </ul>
