@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-15T13:46:59.343Z</updated>
+  <updated>2018-05-15T13:48:37.984Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
     <published>2018-05-15T13:36:43.000Z</published>
-    <updated>2018-05-15T13:46:59.343Z</updated>
+    <updated>2018-05-15T13:48:37.984Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="在iOS10-3系统-给-UILabel-添加中划线失效"><a href="#在iOS10-3系统-给-UILabel-添加中划线失效" class="headerlink" title="在iOS10.3系统 给 UILabel 添加中划线失效"></a>在iOS10.3系统 给 UILabel 添加中划线失效</h2><h3 id="通常使用的代码为"><a href="#通常使用的代码为" class="headerlink" title="通常使用的代码为"></a>通常使用的代码为</h3><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此方法为我们常用的方法[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, self.length)];return self;}</code></pre><p>###以下代码将一举解决 iOS10.3 中划线不生效的系统bug</p><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此 一举解决 iOS 10.3 不显示删除线的系统bug[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];return self;</code></pre><p>}</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="在iOS10-3系统-给-UILabel-添加中划线失效"><a href="#在iOS10-3系统-给-UILabel-添加中划线失效" class="headerlink" title="在iOS10.3系统 给 UILabel 添加中划线失效"></a>在iOS10.3系统 给 UILabel 添加中划线失效</h2><h3 id="通常使用的代码为"><a href="#通常使用的代码为" class="headerlink" title="通常使用的代码为"></a>通常使用的代码为</h3><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此方法为我们常用的方法[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, self.length)];return self;}</code></pre><p>###以下代码将一举解决 iOS10.3 中划线不生效的系统bug</p><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {    // 此 一举解决 iOS 10.3 不显示删除线的系统bug    [self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];return self; }</code></pre>]]></content>
     
     <summary type="html">
     
@@ -102,12 +102,21 @@
   
   <entry>
     <title>程序员应该知道自己要做什么</title>
-    <link href="http://yoursite.com/2017/07/16/H.264/%E8%AE%A4%E8%AF%86H.264(0x01)/"/>
-    <id>http://yoursite.com/2017/07/16/H.264/认识H.264(0x01)/</id>
+    <link href="http://yoursite.com/2017/07/16/H.264/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+    <id>http://yoursite.com/2017/07/16/H.264/程序人生/</id>
     <published>2017-07-16T12:33:43.000Z</published>
-    <updated>2018-05-09T16:41:08.544Z</updated>
+    <updated>2018-05-15T13:52:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>写在这里，告诉自己，职业人生应该是有一定自我主动权的。</p><p>不要因为工作放弃自己曾经那份充满热爱的感觉。</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;p&gt;写在这里，告诉自己，职业人生应该是有一定自我主动权的。&lt;/p&gt;
+&lt;p&gt;不要因为工作放弃自己曾经那份充满热爱的感觉。&lt;/p&gt;
+
+      
     
     </summary>
     
