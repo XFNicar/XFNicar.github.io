@@ -36,9 +36,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
@@ -49,13 +49,13 @@
     <link href="http://yoursite.com/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2018/05/15/iOS适配小优化/iOS适配问题/</id>
     <published>2018-05-15T13:14:43.000Z</published>
-    <updated>2018-05-15T13:30:35.199Z</updated>
+    <updated>2018-05-15T13:57:13.849Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="代码如下所示"><a href="#代码如下所示" class="headerlink" title="代码如下所示"></a>代码如下所示</h2><pre><code>NSString * string = @&quot;9999&quot;;NSNumberFormatter *moneyFormatter = [[NSNumberFormatter alloc] init];moneyFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;NSString *priceString = [moneyFormatter stringFromNumber:[NSNumber numberWithDouble:[string doubleValue]]];NSMutableString *priceMstr = [NSMutableString stringWithFormat:@&quot;%@&quot;,priceString];NSLog(@&quot;%@&quot;,priceMstr);</code></pre><p> 其输出结果为 “￥ 9,999.00” ，而不是我们预期的 “￥9,999.00”。</p><pre><code> ￥ 与 &quot;9,999.00&quot; 之间的空白地带，是无法用替换空格的方式直接消除的的。 即使用如下方法将不起作用 NSRange range = [priceMstr rangeOfString:@&quot; &quot;]; if (range.location != NSNotFound) {    [priceMstr replaceCharactersInRange:range withString:@&quot;&quot;];}</code></pre><p>看来它是一个特殊的字符那么我们不得不采用其他的办法来处理。</p><p>添加如下代码即可处理掉人民币货币符号 与 价格之间的空格:</p><pre><code>[priceMstr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="iOS-9系统下-人民币的特殊性"><a href="#iOS-9系统下-人民币的特殊性" class="headerlink" title="iOS 9系统下 人民币的特殊性"></a>iOS 9系统下 人民币的特殊性</h2><pre><code>NSString * string = @&quot;9999&quot;;NSNumberFormatter *moneyFormatter = [[NSNumberFormatter alloc] init];moneyFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;NSString *priceString = [moneyFormatter stringFromNumber:[NSNumber numberWithDouble:[string doubleValue]]];NSMutableString *priceMstr = [NSMutableString stringWithFormat:@&quot;%@&quot;,priceString];NSLog(@&quot;%@&quot;,priceMstr);</code></pre><p> 其输出结果为 “￥ 9,999.00” ，而不是我们预期的 “￥9,999.00”。</p><pre><code> ￥ 与 &quot;9,999.00&quot; 之间的空白地带，是无法用替换空格的方式直接消除的的。 即使用如下方法将不起作用 NSRange range = [priceMstr rangeOfString:@&quot; &quot;]; if (range.location != NSNotFound) {    [priceMstr replaceCharactersInRange:range withString:@&quot;&quot;];}</code></pre><p>看来它是一个特殊的字符那么我们不得不采用其他的办法来处理。</p><p>添加如下代码即可处理掉人民币货币符号 与 价格之间的空格:</p><pre><code>[priceMstr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];</code></pre>]]></content>
     
     <summary type="html">
     
-      当时用系统自带方法，给货币自动添加货币符号，以及货币千分位之后，如果货币为人民币，在iOS 9 上，人民币会与其他货币符号产生不一样的输出效果，即人民币符号&quot;￥&quot;与价格之间会有一个空白间距。
+      人民币是一种特殊的货币吗？答案是：是的。当使用系统自带方法，给货币自动添加货币符号，以及价格千分位之后，在iOS 9系统上，如果货币为人民币，人民币会与其他货币符号产生不一样的输出效果，即人民币符号&quot;￥&quot;与价格之间会有一个空白间距。
     
     </summary>
     
@@ -64,9 +64,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
