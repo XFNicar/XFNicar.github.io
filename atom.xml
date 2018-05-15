@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-15T13:30:35.199Z</updated>
+  <updated>2018-05-15T13:46:59.343Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS 10.3 UILabel 中划线无效</title>
+    <link href="http://yoursite.com/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
+    <published>2018-05-15T13:36:43.000Z</published>
+    <updated>2018-05-15T13:46:59.343Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="在iOS10-3系统-给-UILabel-添加中划线失效"><a href="#在iOS10-3系统-给-UILabel-添加中划线失效" class="headerlink" title="在iOS10.3系统 给 UILabel 添加中划线失效"></a>在iOS10.3系统 给 UILabel 添加中划线失效</h2><h3 id="通常使用的代码为"><a href="#通常使用的代码为" class="headerlink" title="通常使用的代码为"></a>通常使用的代码为</h3><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此方法为我们常用的方法[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, self.length)];return self;}</code></pre><p>###以下代码将一举解决 iOS10.3 中划线不生效的系统bug</p><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此 一举解决 iOS 10.3 不显示删除线的系统bug[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];return self;</code></pre><p>}</p>]]></content>
+    
+    <summary type="html">
+    
+      在iOS10.3系统 给 UILabel 添加中划线失效
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
+    
+  </entry>
   
   <entry>
     <title>人民币货币符号与价格之间的空格</title>
@@ -36,9 +64,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
