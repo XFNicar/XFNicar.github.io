@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="iOS开发,NSString,小优化,kCFNumberFormatterCurrencyStyle," />
+  <meta name="keywords" content="iOS开发,坑,组件化,多target," />
 
 
 
@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="人民币是一种特殊的货币吗？答案是：是的。当使用系统自带方法，给货币自动添加货币符号，以及价格千分位之后，在iOS 9系统上，如果货币为人民币，人民币会与其他货币符号产生不一样的输出效果，即人民币符号&quot;￥&quot;与价格之间会有一个空白间距。">
-<meta name="keywords" content="iOS开发,NSString,小优化,kCFNumberFormatterCurrencyStyle">
+<meta name="description" content="场景描述：在公司的开发过程中，我们采用了组件化的方式，将代码按照相关功能进行剥离，同时对某些相应的模块独立到一个单独的工程里开发，两个工程里面均独立包含第三方支付功能，那么此时，两个工程里面都包含同样的第三方支付SDK。当代码实施组件化之后，他们可以存在于同一个工程里面，此时可能会引起一些问题，对这些&quot;微信&quot;、&quot;支付宝&quot;等第三方SDK在APP delegate中的回调，我们通常会自己实现一些起中间">
+<meta name="keywords" content="iOS开发,坑,组件化,多target">
 <meta property="og:type" content="article">
-<meta property="og:title" content="人民币货币符号与价格之间的空格">
-<meta property="og:url" content="http://yoursite.com/2018/05/15/iOS适配小优化/iOS适配问题/index.html">
+<meta property="og:title" content="iOS工程">
+<meta property="og:url" content="http://yoursite.com/2018/05/15/组件化到的坑/iOS工程多target问题/index.html">
 <meta property="og:site_name" content="YanYi&#39;s Blog">
-<meta property="og:description" content="人民币是一种特殊的货币吗？答案是：是的。当使用系统自带方法，给货币自动添加货币符号，以及价格千分位之后，在iOS 9系统上，如果货币为人民币，人民币会与其他货币符号产生不一样的输出效果，即人民币符号&quot;￥&quot;与价格之间会有一个空白间距。">
+<meta property="og:description" content="场景描述：在公司的开发过程中，我们采用了组件化的方式，将代码按照相关功能进行剥离，同时对某些相应的模块独立到一个单独的工程里开发，两个工程里面均独立包含第三方支付功能，那么此时，两个工程里面都包含同样的第三方支付SDK。当代码实施组件化之后，他们可以存在于同一个工程里面，此时可能会引起一些问题，对这些&quot;微信&quot;、&quot;支付宝&quot;等第三方SDK在APP delegate中的回调，我们通常会自己实现一些起中间">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T14:42:49.361Z">
+<meta property="og:updated_time" content="2018-08-01T14:20:57.838Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="人民币货币符号与价格之间的空格">
-<meta name="twitter:description" content="人民币是一种特殊的货币吗？答案是：是的。当使用系统自带方法，给货币自动添加货币符号，以及价格千分位之后，在iOS 9系统上，如果货币为人民币，人民币会与其他货币符号产生不一样的输出效果，即人民币符号&quot;￥&quot;与价格之间会有一个空白间距。">
+<meta name="twitter:title" content="iOS工程">
+<meta name="twitter:description" content="场景描述：在公司的开发过程中，我们采用了组件化的方式，将代码按照相关功能进行剥离，同时对某些相应的模块独立到一个单独的工程里开发，两个工程里面均独立包含第三方支付功能，那么此时，两个工程里面都包含同样的第三方支付SDK。当代码实施组件化之后，他们可以存在于同一个工程里面，此时可能会引起一些问题，对这些&quot;微信&quot;、&quot;支付宝&quot;等第三方SDK在APP delegate中的回调，我们通常会自己实现一些起中间">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/15/iOS适配小优化/iOS适配问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/15/组件化到的坑/iOS工程多target问题/"/>
 
 
 
 
 
-  <title>人民币货币符号与价格之间的空格 | YanYi's Blog</title>
+  <title>iOS工程 | YanYi's Blog</title>
   
 
 
@@ -249,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/iOS适配小优化/iOS适配问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/15/组件化到的坑/iOS工程多target问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="YanYi">
@@ -266,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">人民币货币符号与价格之间的空格</h1>
+          <h1 class="post-title" itemprop="name headline">iOS工程</h1>
         
 
         <div class="post-meta">
@@ -325,7 +325,7 @@
 
           
               <div class="post-description">
-                  人民币是一种特殊的货币吗？答案是：是的。当使用系统自带方法，给货币自动添加货币符号，以及价格千分位之后，在iOS 9系统上，如果货币为人民币，人民币会与其他货币符号产生不一样的输出效果，即人民币符号"￥"与价格之间会有一个空白间距。
+                  场景描述：在公司的开发过程中，我们采用了组件化的方式，将代码按照相关功能进行剥离，同时对某些相应的模块独立到一个单独的工程里开发，两个工程里面均独立包含第三方支付功能，那么此时，两个工程里面都包含同样的第三方支付SDK。当代码实施组件化之后，他们可以存在于同一个工程里面，此时可能会引起一些问题，对这些"微信"、"支付宝"等第三方SDK在APP delegate中的回调，我们通常会自己实现一些起中间处理的helper文件或者一个单利来方便全局调用。在不同target下的单利，实例化之后，虽然是同名的，但是却不是同一个对象，这导致主工程里面的delegate无法令除主工程以外的target下的回调生效，这是我在处理微信支付的过程中所遇到的问题。
               </div>
           
 
@@ -342,31 +342,9 @@
       
 
       
-        <h2 id="iOS-9系统下-“人民币的特殊性”"><a href="#iOS-9系统下-“人民币的特殊性”" class="headerlink" title="iOS 9系统下 “人民币的特殊性”"></a>iOS 9系统下 “人民币的特殊性”</h2><pre><code>NSString * string = @&quot;9999&quot;;
+        <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案-一-最优雅的方式：功能一样的同名文件组件化"><a href="#方案-一-最优雅的方式：功能一样的同名文件组件化" class="headerlink" title="方案 一  最优雅的方式：功能一样的同名文件组件化"></a>方案 一  最优雅的方式：功能一样的同名文件组件化</h3><p>  这种方式应该是这个问题最优雅的解决方案了，在开发过程中要尽可能的避免项目中存在同名文件，他们往往是实现完全一样的功能的代码，既然我们都已经组件化了，那么同名文件自然而然的要想到做组件化处理，无需放在多个不一样的target中。</p>
+<h3 id="方案-二-取巧的方案：映射"><a href="#方案-二-取巧的方案：映射" class="headerlink" title="方案 二  取巧的方案：映射"></a>方案 二  取巧的方案：映射</h3><p>  这种情况仅仅在你不得不使用一个单利，但是你又暂时无法将某个同样的功能从两个target中剥离出来（比如微信支付），那么将会在两个target中共同存在相同的微信SDK，此时支付等功能的回调肯定需要依赖一个中间对象，那么就必须保证无论你是在同一个target下，还是多个target下，都必须是同一个实例对象。而你在不同的target下的同名文件，即使你这个类是单例，实例化对象的时候也不可能返回同一个实例对象，那么此时，只能一方移除该文件，不在引用该类的头文件，使用映射的方式，以字符串生成类名来实例出某个特定的单利（前提是你的单利实例化方法一定要写的够完善），此方案仅仅适合作为临时取巧，仅仅是一种解决方案。</p>
 
-NSNumberFormatter *moneyFormatter = [[NSNumberFormatter alloc] init];
-
-moneyFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;
-
-NSString *priceString = [moneyFormatter stringFromNumber:[NSNumber numberWithDouble:[string doubleValue]]];
-
-NSMutableString *priceMstr = [NSMutableString stringWithFormat:@&quot;%@&quot;,priceString];
-
-NSLog(@&quot;%@&quot;,priceMstr);
-</code></pre><p> 其输出结果为 “￥ 9,999.00” ，而不是我们预期的 “￥9,999.00”。</p>
-<pre><code> ￥ 与 &quot;9,999.00&quot; 之间的空白地带，是无法用替换空格的方式直接消除的的。
-
- 即使用如下方法将不起作用
-
- NSRange range = [priceMstr rangeOfString:@&quot; &quot;];
- if (range.location != NSNotFound) {
-    [priceMstr replaceCharactersInRange:range withString:@&quot;&quot;];
-
-}
-</code></pre><p>看来它是一个特殊的字符那么我们不得不采用其他的办法来处理。</p>
-<p>添加如下代码即可处理掉人民币货币符号 与 价格之间的空格:</p>
-<pre><code>[priceMstr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-</code></pre>
       
     </div>
     
@@ -385,11 +363,11 @@ NSLog(@&quot;%@&quot;,priceMstr);
           
             <a href="/tags/iOS开发/" rel="tag"># iOS开发</a>
           
-            <a href="/tags/NSString/" rel="tag"># NSString</a>
+            <a href="/tags/坑/" rel="tag"># 坑</a>
           
-            <a href="/tags/小优化/" rel="tag"># 小优化</a>
+            <a href="/tags/组件化/" rel="tag"># 组件化</a>
           
-            <a href="/tags/kCFNumberFormatterCurrencyStyle/" rel="tag"># kCFNumberFormatterCurrencyStyle</a>
+            <a href="/tags/多target/" rel="tag"># 多target</a>
           
         </div>
       
@@ -402,8 +380,8 @@ NSLog(@&quot;%@&quot;,priceMstr);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/10/CollectionView/CollectionView实现环形布局/" rel="next" title="用CollectionView实现环形布局">
-                <i class="fa fa-chevron-left"></i> 用CollectionView实现环形布局
+              <a href="/2018/05/15/iOS适配小优化/iOS适配问题/" rel="next" title="人民币货币符号与价格之间的空格">
+                <i class="fa fa-chevron-left"></i> 人民币货币符号与价格之间的空格
               </a>
             
           </div>
@@ -412,8 +390,8 @@ NSLog(@&quot;%@&quot;,priceMstr);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/15/组件化到的坑/iOS工程多target问题/" rel="prev" title="iOS工程">
-                iOS工程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/" rel="prev" title="iOS 10.3 UILabel 中划线无效">
+                iOS 10.3 UILabel 中划线无效 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -553,7 +531,7 @@ NSLog(@&quot;%@&quot;,priceMstr);
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-9系统下-“人民币的特殊性”"><span class="nav-number">1.</span> <span class="nav-text">iOS 9系统下 “人民币的特殊性”</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">1.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-一-最优雅的方式：功能一样的同名文件组件化"><span class="nav-number">1.1.</span> <span class="nav-text">方案 一  最优雅的方式：功能一样的同名文件组件化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方案-二-取巧的方案：映射"><span class="nav-number">1.2.</span> <span class="nav-text">方案 二  取巧的方案：映射</span></a></li></ol></li></ol></div>
             
 
           </div>

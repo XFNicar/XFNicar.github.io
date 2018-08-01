@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YanYi&#39;s Blog">
 <meta property="og:description" content="在iOS10.3系统 给 UILabel 添加中划线失效">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-15T13:48:37.984Z">
+<meta property="og:updated_time" content="2018-08-01T12:05:55.914Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 10.3 UILabel 中划线无效">
 <meta name="twitter:description" content="在iOS10.3系统 给 UILabel 添加中划线失效">
@@ -353,7 +353,7 @@ return self;
 
     // 此 一举解决 iOS 10.3 不显示删除线的系统bug
     [self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];
-return self; 
+    return self; 
 }
 </code></pre>
       
@@ -391,8 +391,8 @@ return self;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/15/iOS适配小优化/iOS适配问题/" rel="next" title="人民币货币符号与价格之间的空格">
-                <i class="fa fa-chevron-left"></i> 人民币货币符号与价格之间的空格
+              <a href="/2018/05/15/组件化到的坑/iOS工程多target问题/" rel="next" title="iOS工程">
+                <i class="fa fa-chevron-left"></i> iOS工程
               </a>
             
           </div>
@@ -400,6 +400,10 @@ return self;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/29/EnglishStudy/English Sentences/" rel="prev" title="英语美句">
+                英语美句 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -476,7 +480,7 @@ return self;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -498,7 +502,7 @@ return self;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

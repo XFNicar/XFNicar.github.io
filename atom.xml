@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-15T13:48:37.984Z</updated>
+  <updated>2018-08-01T05:24:31.093Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>英语美句</title>
+    <link href="http://yoursite.com/2018/07/29/EnglishStudy/English%20Sentences/"/>
+    <id>http://yoursite.com/2018/07/29/EnglishStudy/English Sentences/</id>
+    <published>2018-07-28T16:00:00.000Z</published>
+    <updated>2018-08-01T05:24:31.093Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="英语美句"><a href="#英语美句" class="headerlink" title="英语美句"></a>英语美句</h1><h2 id="每天收集一些精美的英语小句子，慢慢提升英语爱好。"><a href="#每天收集一些精美的英语小句子，慢慢提升英语爱好。" class="headerlink" title="每天收集一些精美的英语小句子，慢慢提升英语爱好。"></a>每天收集一些精美的英语小句子，慢慢提升英语爱好。</h2><ul><li><p>赠人玫瑰，手有余香。<br>  Give a person a rose and keep his hand in the rost. </p></li><li><p>两颗相爱的心之间不需要言语。<br>  No words are necessary between two loving hearts.</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      每天收集一些精美的英语小句子，慢慢提升英语爱好。
+    
+    </summary>
+    
+      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS 10.3 UILabel 中划线无效</title>
     <link href="http://yoursite.com/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
     <published>2018-05-15T13:36:43.000Z</published>
-    <updated>2018-05-15T13:48:37.984Z</updated>
+    <updated>2018-08-01T12:05:55.914Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="在iOS10-3系统-给-UILabel-添加中划线失效"><a href="#在iOS10-3系统-给-UILabel-添加中划线失效" class="headerlink" title="在iOS10.3系统 给 UILabel 添加中划线失效"></a>在iOS10.3系统 给 UILabel 添加中划线失效</h2><h3 id="通常使用的代码为"><a href="#通常使用的代码为" class="headerlink" title="通常使用的代码为"></a>通常使用的代码为</h3><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此方法为我们常用的方法[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, self.length)];return self;}</code></pre><p>###以下代码将一举解决 iOS10.3 中划线不生效的系统bug</p><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {    // 此 一举解决 iOS 10.3 不显示删除线的系统bug    [self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];return self; }</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="在iOS10-3系统-给-UILabel-添加中划线失效"><a href="#在iOS10-3系统-给-UILabel-添加中划线失效" class="headerlink" title="在iOS10.3系统 给 UILabel 添加中划线失效"></a>在iOS10.3系统 给 UILabel 添加中划线失效</h2><h3 id="通常使用的代码为"><a href="#通常使用的代码为" class="headerlink" title="通常使用的代码为"></a>通常使用的代码为</h3><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此方法为我们常用的方法[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, self.length)];return self;}</code></pre><p>###以下代码将一举解决 iOS10.3 中划线不生效的系统bug</p><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {    // 此 一举解决 iOS 10.3 不显示删除线的系统bug    [self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];    return self; }</code></pre>]]></content>
     
     <summary type="html">
     
@@ -41,6 +65,34 @@
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS工程</title>
+    <link href="http://yoursite.com/2018/05/15/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/iOS%E5%B7%A5%E7%A8%8B%E5%A4%9Atarget%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/05/15/组件化到的坑/iOS工程多target问题/</id>
+    <published>2018-05-15T13:14:43.000Z</published>
+    <updated>2018-08-01T14:20:57.838Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案-一-最优雅的方式：功能一样的同名文件组件化"><a href="#方案-一-最优雅的方式：功能一样的同名文件组件化" class="headerlink" title="方案 一  最优雅的方式：功能一样的同名文件组件化"></a>方案 一  最优雅的方式：功能一样的同名文件组件化</h3><p>  这种方式应该是这个问题最优雅的解决方案了，在开发过程中要尽可能的避免项目中存在同名文件，他们往往是实现完全一样的功能的代码，既然我们都已经组件化了，那么同名文件自然而然的要想到做组件化处理，无需放在多个不一样的target中。</p><h3 id="方案-二-取巧的方案：映射"><a href="#方案-二-取巧的方案：映射" class="headerlink" title="方案 二  取巧的方案：映射"></a>方案 二  取巧的方案：映射</h3><p>  这种情况仅仅在你不得不使用一个单利，但是你又暂时无法将某个同样的功能从两个target中剥离出来（比如微信支付），那么将会在两个target中共同存在相同的微信SDK，此时支付等功能的回调肯定需要依赖一个中间对象，那么就必须保证无论你是在同一个target下，还是多个target下，都必须是同一个实例对象。而你在不同的target下的同名文件，即使你这个类是单例，实例化对象的时候也不可能返回同一个实例对象，那么此时，只能一方移除该文件，不在引用该类的头文件，使用映射的方式，以字符串生成类名来实例出某个特定的单利（前提是你的单利实例化方法一定要写的够完善），此方案仅仅适合作为临时取巧，仅仅是一种解决方案。</p>]]></content>
+    
+    <summary type="html">
+    
+      场景描述：在公司的开发过程中，我们采用了组件化的方式，将代码按照相关功能进行剥离，同时对某些相应的模块独立到一个单独的工程里开发，两个工程里面均独立包含第三方支付功能，那么此时，两个工程里面都包含同样的第三方支付SDK。当代码实施组件化之后，他们可以存在于同一个工程里面，此时可能会引起一些问题，对这些&quot;微信&quot;、&quot;支付宝&quot;等第三方SDK在APP delegate中的回调，我们通常会自己实现一些起中间处理的helper文件或者一个单利来方便全局调用。在不同target下的单利，实例化之后，虽然是同名的，但是却不是同一个对象，这导致主工程里面的delegate无法令除主工程以外的target下的回调生效，这是我在处理微信支付的过程中所遇到的问题。
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    
+      <category term="多target" scheme="http://yoursite.com/tags/%E5%A4%9Atarget/"/>
     
   </entry>
   
@@ -97,30 +149,6 @@
       <category term="UICollectionView" scheme="http://yoursite.com/tags/UICollectionView/"/>
     
       <category term="UICollectionViewFlowLayout" scheme="http://yoursite.com/tags/UICollectionViewFlowLayout/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>英语美句</title>
-    <link href="http://yoursite.com/2018/05/10/EnglishStudy/English%20Sentences/"/>
-    <id>http://yoursite.com/2018/05/10/EnglishStudy/English Sentences/</id>
-    <published>2018-05-09T17:08:43.000Z</published>
-    <updated>2018-07-28T03:09:51.572Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="英语美句"><a href="#英语美句" class="headerlink" title="英语美句"></a>英语美句</h1><h2 id="每天收集一些精美的英语小句子，慢慢提升英语爱好。"><a href="#每天收集一些精美的英语小句子，慢慢提升英语爱好。" class="headerlink" title="每天收集一些精美的英语小句子，慢慢提升英语爱好。"></a>每天收集一些精美的英语小句子，慢慢提升英语爱好。</h2><ul><li>赠人玫瑰，手有余香。<br>  Give a person a rose and keep his hand in the rost. </li></ul>]]></content>
-    
-    <summary type="html">
-    
-      每天收集一些精美的英语小句子，慢慢提升英语爱好。
-    
-    </summary>
-    
-      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
-    
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
