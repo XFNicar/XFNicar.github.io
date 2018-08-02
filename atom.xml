@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-02T00:52:10.998Z</updated>
+  <updated>2018-08-02T00:54:17.715Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS工程</title>
+    <title>iOS组件化之路-同名文件带来的坑</title>
     <link href="http://yoursite.com/2018/08/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/iOS%E5%B7%A5%E7%A8%8B%E5%A4%9Atarget%E9%97%AE%E9%A2%98/"/>
     <id>http://yoursite.com/2018/08/01/组件化到的坑/iOS工程多target问题/</id>
     <published>2018-07-31T16:00:00.000Z</published>
-    <updated>2018-08-02T00:52:10.998Z</updated>
+    <updated>2018-08-02T00:54:17.715Z</updated>
     
     <content type="html"><![CDATA[<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方案-一-最优雅的方式：功能一样的同名文件组件化"><a href="#方案-一-最优雅的方式：功能一样的同名文件组件化" class="headerlink" title="方案 一  最优雅的方式：功能一样的同名文件组件化"></a>方案 一  最优雅的方式：功能一样的同名文件组件化</h3><p>  这种方式应该是这个问题最优雅的解决方案了，在开发过程中要尽可能的避免项目中存在同名文件，他们往往是实现完全一样的功能的代码，既然我们都已经组件化了，那么同名文件自然而然的要想到做组件化处理，无需放在多个不一样的target中，只需要将这个共同的功能作为依赖库包含在不同的模块中即可。</p><h3 id="方案-二-取巧的方案：映射"><a href="#方案-二-取巧的方案：映射" class="headerlink" title="方案 二  取巧的方案：映射"></a>方案 二  取巧的方案：映射</h3><p>  这种情况仅仅在你不得不使用一个单利，但是你又暂时无法将某个同样的功能从两个target中剥离出来（比如微信支付），那么将会在两个target中共同存在相同的微信SDK，此时支付等功能的回调肯定需要依赖一个中间对象，那么就必须保证无论你是在同一个target下，还是多个target下，都必须是同一个实例对象。而你在不同的target下的同名文件，即使你这个类是单例，实例化对象的时候也不可能返回同一个实例对象，那么此时，只能一方移除该文件，不在引用该类的头文件，使用映射的方式，以字符串生成类名来实例出某个特定的单利（前提是你的单利实例化方法一定要写的够完善），此方案仅仅适合作为临时取巧，仅仅是一种解决方案。</p>]]></content>
     
@@ -88,9 +88,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
@@ -116,9 +116,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
