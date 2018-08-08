@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-02T01:00:36.290Z</updated>
+  <updated>2018-08-08T02:11:39.196Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS 11 UITableView刷新漂移/抖动</title>
+    <link href="http://yoursite.com/2018/08/08/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS11%20tableView%E5%88%B7%E6%96%B0%E6%BC%82%E7%A7%BB%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/08/08/iOS适配小优化/iOS11 tableView刷新漂移问题/</id>
+    <published>2018-08-07T16:00:00.000Z</published>
+    <updated>2018-08-08T02:11:39.196Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="我们做了什么？"><a href="#我们做了什么？" class="headerlink" title="我们做了什么？"></a>我们做了什么？</h3><ul><li>在我们的APP中，静态界面一般很少使用，大部分的页面都是用了UITableView，用来动态展示信息，这里少不了使用动态布局方案，以及Cell的动态高度计算方案，其中就包括预设高度，以及手动动态计算等。在iOS 11 之前，我们可能不会有任何问题，当我们来到iOS 11之后，问题来了，预设高度，让系统根据布局来动态计算的方案，在有些时候就出现了刷新TableView漂移的现象。</li></ul><h3 id="苹果的tabieView动态展示方案"><a href="#苹果的tabieView动态展示方案" class="headerlink" title="苹果的tabieView动态展示方案"></a>苹果的tabieView动态展示方案</h3><ul><li><p>在iOS 8中，苹果引入了UITableView 的一项新功能（Self Sizing Cells）,在iOS 8之前，如果想在UITableView中展示可变高度的动态内容时，需要开发者手动计算行高，Self Sizing Cells 的引入，为动态展示动态内容提供了一个解决方案，这个方案对系统cell和xib都有效。</p></li><li><p>根据苹果官方文档的解释：Self-Sizing开启之后，开发者不用再自己去计算cell的高度，只要设置好相关属性，约束好布局，系统会自动计算好cell的高度。</p></li><li><p>在iOS 11之前，Self Sizing Cells是默认不开启的，当我们来到iOS 11后系统默认开启Self-Sizing，此时，如果我们手动计算高度，有没有关闭Self Sizing Cells相关属性，刷新TableView的时候就可能会出现漂移现象。</p></li></ul><h3 id="我们要做什么？"><a href="#我们要做什么？" class="headerlink" title="我们要做什么？"></a>我们要做什么？</h3><ul><li><p>如果你不需要系统帮你计算cells高度，那么我们就应该关闭Self Sizing Cells相关属性：</p><pre><code>self.tableView.estimatedRowHeight=0;self.tableView.estimatedSectionHeaderHeight = 0;self.tableView.estimatedSectionFooterHeight = 0;</code></pre></li><li><p>如果我们需要系统帮忙计算cells高度，那么我们就应该利用好相关的属性：</p><pre><code>self.tableView.estimatedRowHeight = 100; //  设置任意不等于0 的值self.tableView.rowHeight = UITableViewAutomaticDimension;self.tableView.estimatedSectionHeaderHeight = 35;  // 如有需要也应该设置self.tableView.estimatedSectionFooterHeight = 35;  // 如有需要也应该设置</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      相信很多小伙伴来到iOS 11 之后，以前写的一些TableView内容突然开始不听实话，刷新的时候出现了漂移的现象，为什么呢，带着疑问，我们先来一探究竟吧。
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="UITableView" scheme="http://yoursite.com/tags/UITableView/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS组件化之路-同名文件带来的坑</title>
@@ -88,9 +114,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
@@ -98,10 +124,10 @@
   
   <entry>
     <title>人民币货币符号与价格之间的空格</title>
-    <link href="http://yoursite.com/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/05/15/iOS适配小优化/iOS适配问题/</id>
+    <link href="http://yoursite.com/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS9%20%E4%BA%BA%E6%B0%91%E5%B8%81%E7%AC%A6%E5%8F%B7%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/05/15/iOS适配小优化/iOS9 人民币符号适配问题/</id>
     <published>2018-05-15T13:14:43.000Z</published>
-    <updated>2018-05-15T14:42:49.361Z</updated>
+    <updated>2018-08-08T01:23:55.571Z</updated>
     
     <content type="html"><![CDATA[<h2 id="iOS-9系统下-“人民币的特殊性”"><a href="#iOS-9系统下-“人民币的特殊性”" class="headerlink" title="iOS 9系统下 “人民币的特殊性”"></a>iOS 9系统下 “人民币的特殊性”</h2><pre><code>NSString * string = @&quot;9999&quot;;NSNumberFormatter *moneyFormatter = [[NSNumberFormatter alloc] init];moneyFormatter.numberStyle = kCFNumberFormatterCurrencyStyle;NSString *priceString = [moneyFormatter stringFromNumber:[NSNumber numberWithDouble:[string doubleValue]]];NSMutableString *priceMstr = [NSMutableString stringWithFormat:@&quot;%@&quot;,priceString];NSLog(@&quot;%@&quot;,priceMstr);</code></pre><p> 其输出结果为 “￥ 9,999.00” ，而不是我们预期的 “￥9,999.00”。</p><pre><code> ￥ 与 &quot;9,999.00&quot; 之间的空白地带，是无法用替换空格的方式直接消除的的。 即使用如下方法将不起作用 NSRange range = [priceMstr rangeOfString:@&quot; &quot;]; if (range.location != NSNotFound) {    [priceMstr replaceCharactersInRange:range withString:@&quot;&quot;];}</code></pre><p>看来它是一个特殊的字符那么我们不得不采用其他的办法来处理。</p><p>添加如下代码即可处理掉人民币货币符号 与 价格之间的空格:</p><pre><code>[priceMstr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];</code></pre>]]></content>
     
@@ -116,9 +142,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
@@ -129,9 +155,9 @@
     <link href="http://yoursite.com/2018/05/10/CollectionView/CollectionView%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
     <id>http://yoursite.com/2018/05/10/CollectionView/CollectionView实现环形布局/</id>
     <published>2018-05-09T17:08:43.000Z</published>
-    <updated>2018-05-11T05:36:00.676Z</updated>
+    <updated>2018-08-08T02:22:27.567Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="XFCyclicAnnularFlowLayout"><a href="#XFCyclicAnnularFlowLayout" class="headerlink" title="XFCyclicAnnularFlowLayout"></a>XFCyclicAnnularFlowLayout</h2><h3 id="CollectionView-实现扇形（环形）布局"><a href="#CollectionView-实现扇形（环形）布局" class="headerlink" title="CollectionView 实现扇形（环形）布局"></a>CollectionView 实现扇形（环形）布局</h3><font color="green" size="4.5"><strong>功能设置</strong></font><ul><li><p>1.设置有多少层扇形（环形）</p></li><li><p>2.设置该层有多少元素</p></li><li><p>3.设置元素大小Size</p></li><li><p>4.设置该层环绕的半径</p></li><li><p>5.设置该层扇形的展开弧度</p></li><li><p>6.设置所有元素的朝向</p><ul><li><font color="#660000">朝上（默认）</font><br></li><li><font color="#660000">朝下</font><br></li><li><font color="#660000">朝里（头部指向圆心）</font><br></li><li><font color="#660000">朝外（头部与环形法线方向一致）</font><br></li></ul></li><li><p>7.设置该层环形中所有元素是否顺时针排布</p><ul><li><font color="#660000">默认是顺时针排布</font><br></li></ul></li></ul><font color="green" ,="" size="4.5"><strong>API说明</strong></font><ul><li><p><strong>当前组的扇形（环形）半径</strong></p><ul><li><p>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;</p></li><li><p>返回参数类型值说明如下：</p><pre><code>CGFloat 返回当前组扇形（环形）的半径 (单位: π)</code></pre></li></ul></li><li><p><strong>当前位置Cell的大小（size）</strong></p><ul><li><p>- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;</p></li><li><p>返回参数类型值说明如下：</p><pre><code>CGSize  返回当前位置（indexPath）cell的大小</code></pre></li></ul></li></ul><ul><li><p><strong>当前组的弧度范围（即该组展开弧度）</strong></p><ul><li><p>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;</p></li><li><p>返回参数类型值说明如下：</p><pre><code>CGFloat  返回当前组元素在视图上展开的弧度范围</code></pre></li></ul></li><li><p><strong>该组元素在扇形区域内是否顺时针展开</strong></p><ul><li>- (BOOL )flowLayout:(XFCyclicAnnularFlowLayout*)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;</li></ul></li><li><p>返回参数类型值说明如下：</p><pre><code>BOOL  该返回值设定视图当前环形中cell是顺时针依次排列，还是逆时针依次排列，默认是顺时针</code></pre></li><li><p><strong>元素朝向</strong></p><ul><li><p>- (XFCyclicAnnularItemOrientation )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;</p></li><li><p>返回参数类型值说明如下：</p></li></ul></li></ul><pre><code>typedef NS_ENUM(NSUInteger, XFCyclicAnnularItemOrientation) {    XFCyclicAnnularItemOrientationUp,           // 朝上 默认    XFCyclicAnnularItemOrientationDown,         // 朝下    XFCyclicAnnularItemOrientationInside,       // 朝内    XFCyclicAnnularItemOrientationOutside       // 朝外};</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="XFCyclicAnnularFlowLayout"><a href="#XFCyclicAnnularFlowLayout" class="headerlink" title="XFCyclicAnnularFlowLayout"></a>XFCyclicAnnularFlowLayout</h2><h3 id="CollectionView-实现扇形（环形）布局"><a href="#CollectionView-实现扇形（环形）布局" class="headerlink" title="CollectionView 实现扇形（环形）布局"></a>CollectionView 实现扇形（环形）布局</h3><font color="green" size="4.5"><strong>功能设置</strong></font><ul><li><p>1.设置有多少层扇形（环形）</p></li><li><p>2.设置该层有多少元素</p></li><li><p>3.设置元素大小Size</p></li><li><p>4.设置该层环绕的半径</p></li><li><p>5.设置该层扇形的展开弧度</p></li><li><p>6.设置所有元素的朝向</p><ul><li><font color="#660000">朝上（默认）</font><br></li><li><font color="#660000">朝下</font><br></li><li><font color="#660000">朝里（头部指向圆心）</font><br></li><li><font color="#660000">朝外（头部与环形法线方向一致）</font><br></li></ul></li><li><p>7.设置该层环形中所有元素是否顺时针排布</p><ul><li><font color="#660000">默认是顺时针排布</font><br></li></ul></li></ul><font color="green" ,="" size="4.5"><strong>API说明</strong></font><ul><li><p><strong>当前组的扇形（环形）半径</strong></p><pre><code>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>CGFloat 返回当前组扇形（环形）的半径 (单位: π)</code></pre></li><li><p><strong>当前位置Cell的大小（size）</strong></p><pre><code>- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>CGSize  返回当前位置（indexPath）cell的大小</code></pre></li></ul><ul><li><p><strong>当前组的弧度范围（即该组展开弧度）</strong></p><pre><code>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;</code></pre><p>   <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>CGFloat  返回当前组元素在视图上展开的弧度范围</code></pre></li><li><p><strong>该组元素在扇形区域内是否顺时针展开</strong></p><pre><code>- (BOOL )flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>BOOL  该返回值设定视图当前环形中cell是顺时针依次排列，还是逆时针依次排列，默认是顺时针</code></pre></li><li><p><strong>元素朝向</strong></p><pre><code>- (XFCyclicAnnularItemOrientation )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p></li></ul><pre><code>typedef NS_ENUM(NSUInteger, XFCyclicAnnularItemOrientation) {    XFCyclicAnnularItemOrientationUp,           // 朝上 默认    XFCyclicAnnularItemOrientationDown,         // 朝下    XFCyclicAnnularItemOrientationInside,       // 朝内    XFCyclicAnnularItemOrientationOutside       // 朝外};</code></pre>]]></content>
     
     <summary type="html">
     

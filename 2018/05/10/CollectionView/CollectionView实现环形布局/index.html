@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YanYi&#39;s Blog">
 <meta property="og:description" content="用很多时候,项目中会出现一系列元素排布在一系列圆环至上,该文章将给到一个用UIColectionView来实现该需求的基本思路,该方案API简单易理解,使用方便。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-11T05:36:00.676Z">
+<meta property="og:updated_time" content="2018-08-08T02:22:27.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用CollectionView实现环形布局">
 <meta name="twitter:description" content="用很多时候,项目中会出现一系列元素排布在一系列圆环至上,该文章将给到一个用UIColectionView来实现该需求的基本思路,该方案API简单易理解,使用方便。">
@@ -374,49 +374,30 @@
 
 <ul>
 <li><p><strong>当前组的扇形（环形）半径</strong></p>
-<ul>
-<li><p>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;</p>
-</li>
-<li><p>返回参数类型值说明如下：</p>
+<pre><code>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;
+</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p>
 <pre><code>CGFloat 返回当前组扇形（环形）的半径 (单位: π)
 </code></pre></li>
-</ul>
-</li>
 <li><p><strong>当前位置Cell的大小（size）</strong></p>
-<ul>
-<li><p>- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;</p>
-</li>
-<li><p>返回参数类型值说明如下：</p>
+<pre><code>- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;
+</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p>
 <pre><code>CGSize  返回当前位置（indexPath）cell的大小
 </code></pre></li>
 </ul>
-</li>
-</ul>
 <ul>
 <li><p><strong>当前组的弧度范围（即该组展开弧度）</strong></p>
-<ul>
-<li><p>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;</p>
-</li>
-<li><p>返回参数类型值说明如下：</p>
+<pre><code>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;
+</code></pre><p>   <strong><em>返回参数类型值说明如下：</em></strong></p>
 <pre><code>CGFloat  返回当前组元素在视图上展开的弧度范围
 </code></pre></li>
-</ul>
-</li>
 <li><p><strong>该组元素在扇形区域内是否顺时针展开</strong></p>
-<ul>
-<li>- (BOOL )flowLayout:(XFCyclicAnnularFlowLayout*)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;</li>
-</ul>
-</li>
-<li><p>返回参数类型值说明如下：</p>
+<pre><code>- (BOOL )flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;
+</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p>
 <pre><code>BOOL  该返回值设定视图当前环形中cell是顺时针依次排列，还是逆时针依次排列，默认是顺时针
 </code></pre></li>
 <li><p><strong>元素朝向</strong></p>
-<ul>
-<li><p>- (XFCyclicAnnularItemOrientation )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;</p>
-</li>
-<li><p>返回参数类型值说明如下：</p>
-</li>
-</ul>
+<pre><code>- (XFCyclicAnnularItemOrientation )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;
+</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p>
 </li>
 </ul>
 <pre><code>typedef NS_ENUM(NSUInteger, XFCyclicAnnularItemOrientation) {
@@ -471,7 +452,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/15/iOS适配小优化/iOS适配问题/" rel="prev" title="人民币货币符号与价格之间的空格">
+              <a href="/2018/05/15/iOS适配小优化/iOS9 人民币符号适配问题/" rel="prev" title="人民币货币符号与价格之间的空格">
                 人民币货币符号与价格之间的空格 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -550,7 +531,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +553,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
