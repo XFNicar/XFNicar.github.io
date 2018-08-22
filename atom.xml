@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-08T02:11:39.196Z</updated>
+  <updated>2018-08-22T13:40:33.687Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>英语美文</title>
+    <link href="http://yoursite.com/2018/08/22/EnglishStudy/English%20Article/"/>
+    <id>http://yoursite.com/2018/08/22/EnglishStudy/English Article/</id>
+    <published>2018-08-21T16:00:00.000Z</published>
+    <updated>2018-08-22T13:40:33.687Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Benjamin-Button’s-Letter-to-Daughter"><a href="#Benjamin-Button’s-Letter-to-Daughter" class="headerlink" title="Benjamin Button’s Letter to Daughter"></a>Benjamin Button’s Letter to Daughter</h2><pre><code>For what it&apos;s worth:It&apos;s never too late,or in my case,too early to be whoever you want to be.There&apos;s no time limit. Start whenever you want.You can change or stay the same. There are no rules to this thing.We can make the best or the worst of it.I hope you make the best of it.And I hope you see things that startle you.I hope you feel things you never felt before.I hope you meet people with a defferent point of view.I hope you live a life you&apos;re proud of.If you find that you;re not, I hope you have the strength to start all over again.</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      每天阅读一篇英语短文，慢慢提升英语爱好。
+    
+    </summary>
+    
+      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
+    
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="文章" scheme="http://yoursite.com/tags/%E6%96%87%E7%AB%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cocoapods 安装 WCDB 报“Permission denied”错误</title>
+    <link href="http://yoursite.com/2018/08/08/WCDB/WCDB%20cocoapods%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://yoursite.com/2018/08/08/WCDB/WCDB cocoapods安装失败/</id>
+    <published>2018-08-07T16:00:00.000Z</published>
+    <updated>2018-08-22T13:47:20.854Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>腾讯去年开源的数据库第三方库<a href="https://github.com/Tencent/wcdb/wiki" target="_blank" rel="noopener">WCDB</a> 无疑成为了开发圈里的话题，作为一款生产工具，它绝不是话题那么简单，很多开发者都开始围绕 <a href="https://github.com/Tencent/wcdb/wiki" target="_blank" rel="noopener">WCDB</a> 优化自己的项目了。不过在使用之前也可能会遇到一些小问题，比如pod安装 <a href="https://github.com/Tencent/wcdb/wiki" target="_blank" rel="noopener">WCDB</a> 的时候，会修改xcode部分目录下的一些文件，这其中包括新增模板和代码块。当新增代码块的时候，有时候会安装失败，原因是保存代码快的目录<code>~/Library/Developer/Xcode/UserData/CodeSnippets/</code>属于 root 用户，对root用户为可读写，对其他用户为只读，所以，运行<code>$pod install</code> ，最终会报出有关权限不够的错误：<code>Permission denied</code>。</p><h2 id="Permission-denied-错误"><a href="#Permission-denied-错误" class="headerlink" title="Permission denied 错误"></a>Permission denied 错误</h2><pre><code>pod install Analyzing dependencies[!] The version of CocoaPods used to generate the lockfile (1.5.3) is higher than the version of the current executable (1.5.2). Incompatibility issues may arise.Downloading dependenciesInstalling WCDB (1.0.6)  [!] /bin/bash -c   set -egit submodule update --init sqlcipher;                           cd tools/templates; sh install.sh; cd ../..;                           cd sqlcipher; make -f Makefile.preprocessed; cd ..;                           cp sqlcipher/ext/fts3/fts3_tokenizer.h sqlcipher/Submodule path &apos;sqlcipher&apos;: checked out &apos;d4726337010f60408a9c99633b35f01a8a7ae2de&apos;Submodule &apos;sqlcipher&apos; (https://github.com/Tencent/sqlcipher.git) registered for path &apos;sqlcipher&apos;Cloning into &apos;~/Library/Caches/CocoaPods/Pods/Release/WCDB/1.0.6-4d292/sqlcipher&apos;...cp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Data.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Double.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Int32.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Int64.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.String.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.TableCodableClass.swift.codesnippet: Permission denied  </code></pre><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方法一-修改文件夹权限"><a href="#方法一-修改文件夹权限" class="headerlink" title="方法一 修改文件夹权限"></a>方法一 修改文件夹权限</h3><pre><code>$cd  ~/Library/Developer/Xcode/UserData/$sudo chmod -R 777 CodeSnippets$cd &quot;你的工程目录&quot;$pod install</code></pre><h3 id="方法二-修改用户权限"><a href="#方法二-修改用户权限" class="headerlink" title="方法二 修改用户权限"></a>方法二 修改用户权限</h3><p><strong>前往以下目录</strong></p><pre><code>~/Library/Developer/Xcode/UserData/</code></pre><p><strong>找到以下文件夹</strong></p><pre><code>CodeSnippets</code></pre><p><strong>右键-显示简介</strong></p><pre><code>在右下方解除锁定，修改staff用户的权限为读写</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      pod安装 WCDB 的时候，会修改xcode部分目录下的一些文件，这其中包括新增模板和代码块。由于该目录的所属用户可能为root用户，又或者使用者权限不够，新增代码块的时候，有时候会安装失败。
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+    
+      <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
+    
+      <category term="WCDB" scheme="http://yoursite.com/tags/WCDB/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS 11 UITableView刷新漂移/抖动</title>
@@ -114,9 +166,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
