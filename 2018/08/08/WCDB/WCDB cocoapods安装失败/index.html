@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YanYi&#39;s Blog">
 <meta property="og:description" content="pod安装 WCDB 的时候，会修改xcode部分目录下的一些文件，这其中包括新增模板和代码块。由于该目录的所属用户可能为root用户，又或者使用者权限不够，新增代码块的时候，有时候会安装失败。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T13:47:20.854Z">
+<meta property="og:updated_time" content="2018-08-23T01:07:06.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cocoapods 安装 WCDB 报“Permission denied”错误">
 <meta name="twitter:description" content="pod安装 WCDB 的时候，会修改xcode部分目录下的一些文件，这其中包括新增模板和代码块。由于该目录的所属用户可能为root用户，又或者使用者权限不够，新增代码块的时候，有时候会安装失败。">
@@ -362,12 +362,13 @@ cp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Int3
 cp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Int64.swift.codesnippet: Permission denied
 cp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.String.swift.codesnippet: Permission denied
 cp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.TableCodableClass.swift.codesnippet: Permission denied  
-</code></pre><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="方法一-修改文件夹权限"><a href="#方法一-修改文件夹权限" class="headerlink" title="方法一 修改文件夹权限"></a>方法一 修改文件夹权限</h3><pre><code>$cd  ~/Library/Developer/Xcode/UserData/
+</code></pre><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>###方法一 </p>
+<pre><code>$cd  ~/Library/Developer/Xcode/UserData/
 
 $sudo chmod -R 777 CodeSnippets
 $cd &quot;你的工程目录&quot;
 $pod install
-</code></pre><h3 id="方法二-修改用户权限"><a href="#方法二-修改用户权限" class="headerlink" title="方法二 修改用户权限"></a>方法二 修改用户权限</h3><p><strong>前往以下目录</strong></p>
+</code></pre><p>###方法二<br><strong>前往以下文件夹</strong></p>
 <pre><code>~/Library/Developer/Xcode/UserData/
 </code></pre><p><strong>找到以下文件夹</strong></p>
 <pre><code>CodeSnippets
@@ -518,7 +519,7 @@ $pod install
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -558,7 +559,7 @@ $pod install
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Permission-denied-错误"><span class="nav-number">2.</span> <span class="nav-text">Permission denied 错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一-修改文件夹权限"><span class="nav-number">3.1.</span> <span class="nav-text">方法一 修改文件夹权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二-修改用户权限"><span class="nav-number">3.2.</span> <span class="nav-text">方法二 修改用户权限</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Permission-denied-错误"><span class="nav-number">2.</span> <span class="nav-text">Permission denied 错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a></li></ol></div>
             
 
           </div>
