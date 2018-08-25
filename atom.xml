@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-22T13:40:33.687Z</updated>
+  <updated>2018-08-25T14:21:49.233Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/08/22/EnglishStudy/English%20Article/"/>
     <id>http://yoursite.com/2018/08/22/EnglishStudy/English Article/</id>
     <published>2018-08-21T16:00:00.000Z</published>
-    <updated>2018-08-22T13:40:33.687Z</updated>
+    <updated>2018-08-25T14:21:49.233Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Benjamin-Button’s-Letter-to-Daughter"><a href="#Benjamin-Button’s-Letter-to-Daughter" class="headerlink" title="Benjamin Button’s Letter to Daughter"></a>Benjamin Button’s Letter to Daughter</h2><pre><code>For what it&apos;s worth:It&apos;s never too late,or in my case,too early to be whoever you want to be.There&apos;s no time limit. Start whenever you want.You can change or stay the same. There are no rules to this thing.We can make the best or the worst of it.I hope you make the best of it.And I hope you see things that startle you.I hope you feel things you never felt before.I hope you meet people with a defferent point of view.I hope you live a life you&apos;re proud of.If you find that you;re not, I hope you have the strength to start all over again.</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="Benjamin-Button’s-Letter-to-Daughter"><a href="#Benjamin-Button’s-Letter-to-Daughter" class="headerlink" title="Benjamin Button’s Letter to Daughter"></a>Benjamin Button’s Letter to Daughter</h2><pre><code>For what it&apos;s worth:It&apos;s never too late,or in my case,too early to be whoever you want to be.There&apos;s no time limit. Start whenever you want.You can change or stay the same. There are no rules to this thing.We can make the best or the worst of it.I hope you make the best of it.And I hope you see things that startle you.I hope you feel things you never felt before.I hope you meet people with a defferent point of view.I hope you live a life you&apos;re proud of.If you find that you;re not, I hope you have the strength to start all over again.</code></pre><h2 id="If-You-Think…"><a href="#If-You-Think…" class="headerlink" title="If You Think…"></a>If You Think…</h2><pre><code>If you think you are beaten, you are.If you think you dare not, you don&apos;t.If you want win,but think you cant,it&apos;s almost a cinch you won&apos;t.If you think you&apos;ll lose,you&apos;re lost; for out in the world we find success begins with a fellow&apos;s will.It&apos;s all in the state of the mind.Life&apos;s gattles don&apos;t always go to the stronger and faster man.But sonner or later the man who wins is the man who thinks he can.</code></pre>]]></content>
     
     <summary type="html">
     
@@ -194,9 +194,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
