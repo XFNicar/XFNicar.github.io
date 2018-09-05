@@ -5,9 +5,9 @@
   <subtitle>猴子每天都会爬树摘果子，猴子不再爬树了，可能是树上没果子了，也可能猴子已经不再是猴子。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2018-08-28T15:41:14.956Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://xfnicar.tech/"/>
+  <updated>2018-08-28T15:41:14.957Z</updated>
+  <id>http://xfnicar.tech/</id>
   
   <author>
     <name>YanYi</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>cocoapods 安装 WCDB 报“Permission denied”错误</title>
-    <link href="http://yoursite.com/2018/08/23/WCDB/WCDB%20cocoapods%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
-    <id>http://yoursite.com/2018/08/23/WCDB/WCDB cocoapods安装失败/</id>
+    <link href="http://xfnicar.tech/2018/08/23/WCDB/WCDB%20cocoapods%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://xfnicar.tech/2018/08/23/WCDB/WCDB cocoapods安装失败/</id>
     <published>2018-08-22T16:00:00.000Z</published>
-    <updated>2018-08-28T15:41:14.956Z</updated>
+    <updated>2018-08-28T15:41:14.957Z</updated>
     
     <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>腾讯去年开源的数据库第三方库<a href="https://github.com/Tencent/wcdb/wiki" target="_blank" rel="noopener">WCDB</a> 无疑成为了开发圈里的话题，作为一款生产工具，它绝不是话题那么简单，很多开发者都开始围绕 <a href="https://github.com/Tencent/wcdb/wiki" target="_blank" rel="noopener">WCDB</a> 优化自己的项目了。不过在使用之前也可能会遇到一些小问题，比如pod安装 <a href="https://github.com/Tencent/wcdb/wiki" target="_blank" rel="noopener">WCDB</a> 的时候，会修改xcode部分目录下的一些文件，这其中包括新增模板和代码块。当新增代码块的时候，有时候会安装失败，原因是保存代码快的目录<code>~/Library/Developer/Xcode/UserData/CodeSnippets/</code>属于 root 用户，对root用户为可读写，对其他用户为只读，所以，运行<code>$pod install</code> ，最终会报出有关权限不够的错误：<code>Permission denied</code>。</p><h2 id="Permission-denied-错误"><a href="#Permission-denied-错误" class="headerlink" title="Permission denied 错误"></a>Permission denied 错误</h2><pre><code>pod install Analyzing dependencies[!] The version of CocoaPods used to generate the lockfile (1.5.3) is higher than the version of the current executable (1.5.2). Incompatibility issues may arise.Downloading dependenciesInstalling WCDB (1.0.6)  [!] /bin/bash -c   set -egit submodule update --init sqlcipher;                           cd tools/templates; sh install.sh; cd ../..;                           cd sqlcipher; make -f Makefile.preprocessed; cd ..;                           cp sqlcipher/ext/fts3/fts3_tokenizer.h sqlcipher/Submodule path &apos;sqlcipher&apos;: checked out &apos;d4726337010f60408a9c99633b35f01a8a7ae2de&apos;Submodule &apos;sqlcipher&apos; (https://github.com/Tencent/sqlcipher.git) registered for path &apos;sqlcipher&apos;Cloning into &apos;~/Library/Caches/CocoaPods/Pods/Release/WCDB/1.0.6-4d292/sqlcipher&apos;...cp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Data.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Double.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Int32.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.Int64.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.ColumnCodableClass.String.swift.codesnippet: Permission deniedcp: ~/Library/Developer/Xcode/UserData/CodeSnippets/WCDB.TableCodableClass.swift.codesnippet: Permission denied  </code></pre><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>###方法一 </p><pre><code>$cd  ~/Library/Developer/Xcode/UserData/$sudo chmod -R 777 CodeSnippets$cd &quot;你的工程目录&quot;$pod install</code></pre><p>###方法二<br><strong>前往以下文件夹</strong></p><pre><code>~/Library/Developer/Xcode/UserData/</code></pre><p><strong>找到以下文件夹</strong></p><pre><code>CodeSnippets</code></pre><p><strong>右键-显示简介</strong></p><pre><code>在右下方解除锁定，修改staff用户的权限为读写</code></pre>]]></content>
     
@@ -31,23 +31,23 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
+      <category term="cocoapods" scheme="http://xfnicar.tech/tags/cocoapods/"/>
     
-      <category term="WCDB" scheme="http://yoursite.com/tags/WCDB/"/>
+      <category term="WCDB" scheme="http://xfnicar.tech/tags/WCDB/"/>
     
   </entry>
   
   <entry>
     <title>英语美文</title>
-    <link href="http://yoursite.com/2018/08/22/EnglishStudy/English%20Article/"/>
-    <id>http://yoursite.com/2018/08/22/EnglishStudy/English Article/</id>
+    <link href="http://xfnicar.tech/2018/08/22/EnglishStudy/English%20Article/"/>
+    <id>http://xfnicar.tech/2018/08/22/EnglishStudy/English Article/</id>
     <published>2018-08-21T16:00:00.000Z</published>
-    <updated>2018-08-25T14:21:49.233Z</updated>
+    <updated>2018-08-25T14:21:49.234Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Benjamin-Button’s-Letter-to-Daughter"><a href="#Benjamin-Button’s-Letter-to-Daughter" class="headerlink" title="Benjamin Button’s Letter to Daughter"></a>Benjamin Button’s Letter to Daughter</h2><pre><code>For what it&apos;s worth:It&apos;s never too late,or in my case,too early to be whoever you want to be.There&apos;s no time limit. Start whenever you want.You can change or stay the same. There are no rules to this thing.We can make the best or the worst of it.I hope you make the best of it.And I hope you see things that startle you.I hope you feel things you never felt before.I hope you meet people with a defferent point of view.I hope you live a life you&apos;re proud of.If you find that you;re not, I hope you have the strength to start all over again.</code></pre><h2 id="If-You-Think…"><a href="#If-You-Think…" class="headerlink" title="If You Think…"></a>If You Think…</h2><pre><code>If you think you are beaten, you are.If you think you dare not, you don&apos;t.If you want win,but think you cant,it&apos;s almost a cinch you won&apos;t.If you think you&apos;ll lose,you&apos;re lost; for out in the world we find success begins with a fellow&apos;s will.It&apos;s all in the state of the mind.Life&apos;s gattles don&apos;t always go to the stronger and faster man.But sonner or later the man who wins is the man who thinks he can.</code></pre>]]></content>
     
@@ -57,23 +57,23 @@
     
     </summary>
     
-      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+      <category term="英语学习" scheme="http://xfnicar.tech/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
+      <category term="英语" scheme="http://xfnicar.tech/tags/%E8%8B%B1%E8%AF%AD/"/>
     
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="http://xfnicar.tech/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="文章" scheme="http://yoursite.com/tags/%E6%96%87%E7%AB%A0/"/>
+      <category term="文章" scheme="http://xfnicar.tech/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
   <entry>
     <title>iOS 11 UITableView刷新漂移/抖动</title>
-    <link href="http://yoursite.com/2018/08/08/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS11%20tableView%E5%88%B7%E6%96%B0%E6%BC%82%E7%A7%BB%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/08/08/iOS适配小优化/iOS11 tableView刷新漂移问题/</id>
+    <link href="http://xfnicar.tech/2018/08/08/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS11%20tableView%E5%88%B7%E6%96%B0%E6%BC%82%E7%A7%BB%E9%97%AE%E9%A2%98/"/>
+    <id>http://xfnicar.tech/2018/08/08/iOS适配小优化/iOS11 tableView刷新漂移问题/</id>
     <published>2018-08-07T16:00:00.000Z</published>
-    <updated>2018-08-08T02:11:39.196Z</updated>
+    <updated>2018-08-08T02:11:39.197Z</updated>
     
     <content type="html"><![CDATA[<h3 id="我们做了什么？"><a href="#我们做了什么？" class="headerlink" title="我们做了什么？"></a>我们做了什么？</h3><ul><li>在我们的APP中，静态界面一般很少使用，大部分的页面都是用了UITableView，用来动态展示信息，这里少不了使用动态布局方案，以及Cell的动态高度计算方案，其中就包括预设高度，以及手动动态计算等。在iOS 11 之前，我们可能不会有任何问题，当我们来到iOS 11之后，问题来了，预设高度，让系统根据布局来动态计算的方案，在有些时候就出现了刷新TableView漂移的现象。</li></ul><h3 id="苹果的tabieView动态展示方案"><a href="#苹果的tabieView动态展示方案" class="headerlink" title="苹果的tabieView动态展示方案"></a>苹果的tabieView动态展示方案</h3><ul><li><p>在iOS 8中，苹果引入了UITableView 的一项新功能（Self Sizing Cells）,在iOS 8之前，如果想在UITableView中展示可变高度的动态内容时，需要开发者手动计算行高，Self Sizing Cells 的引入，为动态展示动态内容提供了一个解决方案，这个方案对系统cell和xib都有效。</p></li><li><p>根据苹果官方文档的解释：Self-Sizing开启之后，开发者不用再自己去计算cell的高度，只要设置好相关属性，约束好布局，系统会自动计算好cell的高度。</p></li><li><p>在iOS 11之前，Self Sizing Cells是默认不开启的，当我们来到iOS 11后系统默认开启Self-Sizing，此时，如果我们手动计算高度，有没有关闭Self Sizing Cells相关属性，刷新TableView的时候就可能会出现漂移现象。</p></li></ul><h3 id="我们要做什么？"><a href="#我们要做什么？" class="headerlink" title="我们要做什么？"></a>我们要做什么？</h3><ul><li><p>如果你不需要系统帮你计算cells高度，那么我们就应该关闭Self Sizing Cells相关属性：</p><pre><code>self.tableView.estimatedRowHeight=0;self.tableView.estimatedSectionHeaderHeight = 0;self.tableView.estimatedSectionFooterHeight = 0;</code></pre></li><li><p>如果我们需要系统帮忙计算cells高度，那么我们就应该利用好相关的属性：</p><pre><code>self.tableView.estimatedRowHeight = 100; //  设置任意不等于0 的值self.tableView.rowHeight = UITableViewAutomaticDimension;self.tableView.estimatedSectionHeaderHeight = 35;  // 如有需要也应该设置self.tableView.estimatedSectionFooterHeight = 35;  // 如有需要也应该设置</code></pre></li></ul>]]></content>
     
@@ -83,21 +83,21 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+      <category term="小优化" scheme="http://xfnicar.tech/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
-      <category term="UITableView" scheme="http://yoursite.com/tags/UITableView/"/>
+      <category term="UITableView" scheme="http://xfnicar.tech/tags/UITableView/"/>
     
   </entry>
   
   <entry>
     <title>iOS组件化之路-同名文件带来的坑</title>
-    <link href="http://yoursite.com/2018/08/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/iOS%E5%B7%A5%E7%A8%8B%E5%A4%9Atarget%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/08/01/组件化到的坑/iOS工程多target问题/</id>
+    <link href="http://xfnicar.tech/2018/08/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/iOS%E5%B7%A5%E7%A8%8B%E5%A4%9Atarget%E9%97%AE%E9%A2%98/"/>
+    <id>http://xfnicar.tech/2018/08/01/组件化到的坑/iOS工程多target问题/</id>
     <published>2018-07-31T16:00:00.000Z</published>
     <updated>2018-08-02T01:00:36.290Z</updated>
     
@@ -109,25 +109,25 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+      <category term="坑" scheme="http://xfnicar.tech/tags/%E5%9D%91/"/>
     
-      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+      <category term="组件化" scheme="http://xfnicar.tech/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
     
-      <category term="多target" scheme="http://yoursite.com/tags/%E5%A4%9Atarget/"/>
+      <category term="多target" scheme="http://xfnicar.tech/tags/%E5%A4%9Atarget/"/>
     
   </entry>
   
   <entry>
     <title>英语美句</title>
-    <link href="http://yoursite.com/2018/07/29/EnglishStudy/English%20Sentences/"/>
-    <id>http://yoursite.com/2018/07/29/EnglishStudy/English Sentences/</id>
+    <link href="http://xfnicar.tech/2018/07/29/EnglishStudy/English%20Sentences/"/>
+    <id>http://xfnicar.tech/2018/07/29/EnglishStudy/English Sentences/</id>
     <published>2018-07-28T16:00:00.000Z</published>
-    <updated>2018-08-08T03:13:04.533Z</updated>
+    <updated>2018-08-08T03:13:04.534Z</updated>
     
     <content type="html"><![CDATA[<h1 id="英语美句"><a href="#英语美句" class="headerlink" title="英语美句"></a>英语美句</h1><h2 id="每天收集一些精美的英语小句子，慢慢提升英语爱好。"><a href="#每天收集一些精美的英语小句子，慢慢提升英语爱好。" class="headerlink" title="每天收集一些精美的英语小句子，慢慢提升英语爱好。"></a>每天收集一些精美的英语小句子，慢慢提升英语爱好。</h2><ul><li><p>赠人玫瑰，手有余香。<br>  Give a person a rose and keep his hand in the rost. </p></li><li><p>两颗相爱的心之间不需要言语。<br>  No words are necessary between two loving hearts.</p></li><li><p>成功者是坚持梦想不放弃的人。<br>  A winner is a dreamer who never gives up.</p></li></ul>]]></content>
     
@@ -137,21 +137,21 @@
     
     </summary>
     
-      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+      <category term="英语学习" scheme="http://xfnicar.tech/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
+      <category term="英语" scheme="http://xfnicar.tech/tags/%E8%8B%B1%E8%AF%AD/"/>
     
-      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="http://xfnicar.tech/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>iOS 10.3 UILabel 中划线无效</title>
-    <link href="http://yoursite.com/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
+    <link href="http://xfnicar.tech/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://xfnicar.tech/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
     <published>2018-05-15T13:36:43.000Z</published>
-    <updated>2018-08-01T12:05:55.914Z</updated>
+    <updated>2018-08-01T12:05:55.915Z</updated>
     
     <content type="html"><![CDATA[<h2 id="在iOS10-3系统-给-UILabel-添加中划线失效"><a href="#在iOS10-3系统-给-UILabel-添加中划线失效" class="headerlink" title="在iOS10.3系统 给 UILabel 添加中划线失效"></a>在iOS10.3系统 给 UILabel 添加中划线失效</h2><h3 id="通常使用的代码为"><a href="#通常使用的代码为" class="headerlink" title="通常使用的代码为"></a>通常使用的代码为</h3><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {// 此方法为我们常用的方法[self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]} range:NSMakeRange(0, self.length)];return self;}</code></pre><p>###以下代码将一举解决 iOS10.3 中划线不生效的系统bug</p><pre><code>- (NSMutableAttributedString *)setUnderlineStyle {    // 此 一举解决 iOS 10.3 不显示删除线的系统bug    [self setAttributes:@{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],NSBaselineOffsetAttributeName : @(NSUnderlineStyleSingle)} range:NSMakeRange(0, self.length)];    return self; }</code></pre>]]></content>
     
@@ -161,23 +161,23 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+      <category term="iOS 10.3 代码适配问题" scheme="http://xfnicar.tech/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+      <category term="NSString" scheme="http://xfnicar.tech/tags/NSString/"/>
     
-      <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
+      <category term="UILabel" scheme="http://xfnicar.tech/tags/UILabel/"/>
     
   </entry>
   
   <entry>
     <title>人民币货币符号与价格之间的空格</title>
-    <link href="http://yoursite.com/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS9%20%E4%BA%BA%E6%B0%91%E5%B8%81%E7%AC%A6%E5%8F%B7%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/05/15/iOS适配小优化/iOS9 人民币符号适配问题/</id>
+    <link href="http://xfnicar.tech/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS9%20%E4%BA%BA%E6%B0%91%E5%B8%81%E7%AC%A6%E5%8F%B7%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://xfnicar.tech/2018/05/15/iOS适配小优化/iOS9 人民币符号适配问题/</id>
     <published>2018-05-15T13:14:43.000Z</published>
     <updated>2018-08-08T01:23:55.571Z</updated>
     
@@ -189,25 +189,25 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+      <category term="NSString" scheme="http://xfnicar.tech/tags/NSString/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+      <category term="小优化" scheme="http://xfnicar.tech/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
-      <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
+      <category term="kCFNumberFormatterCurrencyStyle" scheme="http://xfnicar.tech/tags/kCFNumberFormatterCurrencyStyle/"/>
     
   </entry>
   
   <entry>
     <title>用CollectionView实现环形布局</title>
-    <link href="http://yoursite.com/2018/05/10/CollectionView/CollectionView%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
-    <id>http://yoursite.com/2018/05/10/CollectionView/CollectionView实现环形布局/</id>
+    <link href="http://xfnicar.tech/2018/05/10/CollectionView/CollectionView%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
+    <id>http://xfnicar.tech/2018/05/10/CollectionView/CollectionView实现环形布局/</id>
     <published>2018-05-09T17:08:43.000Z</published>
-    <updated>2018-08-08T02:22:27.567Z</updated>
+    <updated>2018-08-08T02:22:27.568Z</updated>
     
     <content type="html"><![CDATA[<h2 id="XFCyclicAnnularFlowLayout"><a href="#XFCyclicAnnularFlowLayout" class="headerlink" title="XFCyclicAnnularFlowLayout"></a>XFCyclicAnnularFlowLayout</h2><h3 id="CollectionView-实现扇形（环形）布局"><a href="#CollectionView-实现扇形（环形）布局" class="headerlink" title="CollectionView 实现扇形（环形）布局"></a>CollectionView 实现扇形（环形）布局</h3><font color="green" size="4.5"><strong>功能设置</strong></font><ul><li><p>1.设置有多少层扇形（环形）</p></li><li><p>2.设置该层有多少元素</p></li><li><p>3.设置元素大小Size</p></li><li><p>4.设置该层环绕的半径</p></li><li><p>5.设置该层扇形的展开弧度</p></li><li><p>6.设置所有元素的朝向</p><ul><li><font color="#660000">朝上（默认）</font><br></li><li><font color="#660000">朝下</font><br></li><li><font color="#660000">朝里（头部指向圆心）</font><br></li><li><font color="#660000">朝外（头部与环形法线方向一致）</font><br></li></ul></li><li><p>7.设置该层环形中所有元素是否顺时针排布</p><ul><li><font color="#660000">默认是顺时针排布</font><br></li></ul></li></ul><font color="green" ,="" size="4.5"><strong>API说明</strong></font><ul><li><p><strong>当前组的扇形（环形）半径</strong></p><pre><code>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadiusInSection:(NSInteger)section;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>CGFloat 返回当前组扇形（环形）的半径 (单位: π)</code></pre></li><li><p><strong>当前位置Cell的大小（size）</strong></p><pre><code>- (CGSize)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularItemSizeAtindexPath:(NSIndexPath *)indexPath;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>CGSize  返回当前位置（indexPath）cell的大小</code></pre></li></ul><ul><li><p><strong>当前组的弧度范围（即该组展开弧度）</strong></p><pre><code>- (CGFloat)flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicAnnularRadianInSection:(NSInteger)section;</code></pre><p>   <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>CGFloat  返回当前组元素在视图上展开的弧度范围</code></pre></li><li><p><strong>该组元素在扇形区域内是否顺时针展开</strong></p><pre><code>- (BOOL )flowLayout:(XFCyclicAnnularFlowLayout *)flowLayout cyclicIsClockwiseInSection:(NSInteger)section;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p><pre><code>BOOL  该返回值设定视图当前环形中cell是顺时针依次排列，还是逆时针依次排列，默认是顺时针</code></pre></li><li><p><strong>元素朝向</strong></p><pre><code>- (XFCyclicAnnularItemOrientation )cyclicAnnularItemOrientationInFlowLayout:(XFCyclicAnnularFlowLayout *)flowLyout;</code></pre><p>  <strong><em>返回参数类型值说明如下：</em></strong></p></li></ul><pre><code>typedef NS_ENUM(NSUInteger, XFCyclicAnnularItemOrientation) {    XFCyclicAnnularItemOrientationUp,           // 朝上 默认    XFCyclicAnnularItemOrientationDown,         // 朝下    XFCyclicAnnularItemOrientationInside,       // 朝内    XFCyclicAnnularItemOrientationOutside       // 朝外};</code></pre>]]></content>
     
@@ -217,25 +217,25 @@
     
     </summary>
     
-      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="环形布局" scheme="http://yoursite.com/tags/%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
+      <category term="环形布局" scheme="http://xfnicar.tech/tags/%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
     
-      <category term="UICollectionView" scheme="http://yoursite.com/tags/UICollectionView/"/>
+      <category term="UICollectionView" scheme="http://xfnicar.tech/tags/UICollectionView/"/>
     
-      <category term="UICollectionViewFlowLayout" scheme="http://yoursite.com/tags/UICollectionViewFlowLayout/"/>
+      <category term="UICollectionViewFlowLayout" scheme="http://xfnicar.tech/tags/UICollectionViewFlowLayout/"/>
     
   </entry>
   
   <entry>
     <title>程序员应该知道自己要做什么</title>
-    <link href="http://yoursite.com/2017/07/16/H.264/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
-    <id>http://yoursite.com/2017/07/16/H.264/程序人生/</id>
+    <link href="http://xfnicar.tech/2017/07/16/H.264/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+    <id>http://xfnicar.tech/2017/07/16/H.264/程序人生/</id>
     <published>2017-07-16T12:33:43.000Z</published>
-    <updated>2018-08-28T15:38:31.759Z</updated>
+    <updated>2018-08-28T15:38:31.760Z</updated>
     
     <content type="html"><![CDATA[<p>写在这里，告诉自己，职业人生应该是有一定自我主动权的。</p><p>不要因为工作放弃自己曾经那份充满热爱的感觉。</p><p>总是会越写越困，困的时候会失去动力，是坚持不下去，还是真的累了呢。</p>]]></content>
     
