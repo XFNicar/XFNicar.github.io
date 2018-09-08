@@ -5,9 +5,9 @@
   <subtitle>猴子每天都会爬树摘果子，猴子不再爬树了，可能是树上没果子了，也可能猴子已经不再是猴子。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://xfnicar.tech/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2018-08-28T15:41:14.957Z</updated>
-  <id>http://xfnicar.tech/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>YanYi</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>cocoapods 安装 WCDB 报“Permission denied”错误</title>
-    <link href="http://xfnicar.tech/2018/08/23/WCDB/WCDB%20cocoapods%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
-    <id>http://xfnicar.tech/2018/08/23/WCDB/WCDB cocoapods安装失败/</id>
+    <link href="http://yoursite.com/2018/08/23/WCDB/WCDB%20cocoapods%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5/"/>
+    <id>http://yoursite.com/2018/08/23/WCDB/WCDB cocoapods安装失败/</id>
     <published>2018-08-22T16:00:00.000Z</published>
     <updated>2018-08-28T15:41:14.957Z</updated>
     
@@ -31,21 +31,21 @@
     
     </summary>
     
-      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="cocoapods" scheme="http://xfnicar.tech/tags/cocoapods/"/>
+      <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
     
-      <category term="WCDB" scheme="http://xfnicar.tech/tags/WCDB/"/>
+      <category term="WCDB" scheme="http://yoursite.com/tags/WCDB/"/>
     
   </entry>
   
   <entry>
     <title>英语美文</title>
-    <link href="http://xfnicar.tech/2018/08/22/EnglishStudy/English%20Article/"/>
-    <id>http://xfnicar.tech/2018/08/22/EnglishStudy/English Article/</id>
+    <link href="http://yoursite.com/2018/08/22/EnglishStudy/English%20Article/"/>
+    <id>http://yoursite.com/2018/08/22/EnglishStudy/English Article/</id>
     <published>2018-08-21T16:00:00.000Z</published>
     <updated>2018-08-25T14:21:49.234Z</updated>
     
@@ -57,21 +57,21 @@
     
     </summary>
     
-      <category term="英语学习" scheme="http://xfnicar.tech/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="英语" scheme="http://xfnicar.tech/tags/%E8%8B%B1%E8%AF%AD/"/>
+      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
     
-      <category term="学习" scheme="http://xfnicar.tech/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="文章" scheme="http://xfnicar.tech/tags/%E6%96%87%E7%AB%A0/"/>
+      <category term="文章" scheme="http://yoursite.com/tags/%E6%96%87%E7%AB%A0/"/>
     
   </entry>
   
   <entry>
     <title>iOS 11 UITableView刷新漂移/抖动</title>
-    <link href="http://xfnicar.tech/2018/08/08/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS11%20tableView%E5%88%B7%E6%96%B0%E6%BC%82%E7%A7%BB%E9%97%AE%E9%A2%98/"/>
-    <id>http://xfnicar.tech/2018/08/08/iOS适配小优化/iOS11 tableView刷新漂移问题/</id>
+    <link href="http://yoursite.com/2018/08/08/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS11%20tableView%E5%88%B7%E6%96%B0%E6%BC%82%E7%A7%BB%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/08/08/iOS适配小优化/iOS11 tableView刷新漂移问题/</id>
     <published>2018-08-07T16:00:00.000Z</published>
     <updated>2018-08-08T02:11:39.197Z</updated>
     
@@ -83,21 +83,21 @@
     
     </summary>
     
-      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://xfnicar.tech/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
-      <category term="UITableView" scheme="http://xfnicar.tech/tags/UITableView/"/>
+      <category term="UITableView" scheme="http://yoursite.com/tags/UITableView/"/>
     
   </entry>
   
   <entry>
     <title>iOS组件化之路-同名文件带来的坑</title>
-    <link href="http://xfnicar.tech/2018/08/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/iOS%E5%B7%A5%E7%A8%8B%E5%A4%9Atarget%E9%97%AE%E9%A2%98/"/>
-    <id>http://xfnicar.tech/2018/08/01/组件化到的坑/iOS工程多target问题/</id>
+    <link href="http://yoursite.com/2018/08/01/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/iOS%E5%B7%A5%E7%A8%8B%E5%A4%9Atarget%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/08/01/组件化到的坑/iOS工程多target问题/</id>
     <published>2018-07-31T16:00:00.000Z</published>
     <updated>2018-08-02T01:00:36.290Z</updated>
     
@@ -109,23 +109,23 @@
     
     </summary>
     
-      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="坑" scheme="http://xfnicar.tech/tags/%E5%9D%91/"/>
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
     
-      <category term="组件化" scheme="http://xfnicar.tech/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
     
-      <category term="多target" scheme="http://xfnicar.tech/tags/%E5%A4%9Atarget/"/>
+      <category term="多target" scheme="http://yoursite.com/tags/%E5%A4%9Atarget/"/>
     
   </entry>
   
   <entry>
     <title>英语美句</title>
-    <link href="http://xfnicar.tech/2018/07/29/EnglishStudy/English%20Sentences/"/>
-    <id>http://xfnicar.tech/2018/07/29/EnglishStudy/English Sentences/</id>
+    <link href="http://yoursite.com/2018/07/29/EnglishStudy/English%20Sentences/"/>
+    <id>http://yoursite.com/2018/07/29/EnglishStudy/English Sentences/</id>
     <published>2018-07-28T16:00:00.000Z</published>
     <updated>2018-08-08T03:13:04.534Z</updated>
     
@@ -137,19 +137,19 @@
     
     </summary>
     
-      <category term="英语学习" scheme="http://xfnicar.tech/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
+      <category term="英语学习" scheme="http://yoursite.com/categories/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="英语" scheme="http://xfnicar.tech/tags/%E8%8B%B1%E8%AF%AD/"/>
+      <category term="英语" scheme="http://yoursite.com/tags/%E8%8B%B1%E8%AF%AD/"/>
     
-      <category term="学习" scheme="http://xfnicar.tech/tags/%E5%AD%A6%E4%B9%A0/"/>
+      <category term="学习" scheme="http://yoursite.com/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>iOS 10.3 UILabel 中划线无效</title>
-    <link href="http://xfnicar.tech/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
-    <id>http://xfnicar.tech/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
+    <link href="http://yoursite.com/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
     <published>2018-05-15T13:36:43.000Z</published>
     <updated>2018-08-01T12:05:55.915Z</updated>
     
@@ -161,23 +161,23 @@
     
     </summary>
     
-      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="iOS 10.3 代码适配问题" scheme="http://xfnicar.tech/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
-      <category term="NSString" scheme="http://xfnicar.tech/tags/NSString/"/>
+      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
     
-      <category term="UILabel" scheme="http://xfnicar.tech/tags/UILabel/"/>
+      <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
   </entry>
   
   <entry>
     <title>人民币货币符号与价格之间的空格</title>
-    <link href="http://xfnicar.tech/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS9%20%E4%BA%BA%E6%B0%91%E5%B8%81%E7%AC%A6%E5%8F%B7%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
-    <id>http://xfnicar.tech/2018/05/15/iOS适配小优化/iOS9 人民币符号适配问题/</id>
+    <link href="http://yoursite.com/2018/05/15/iOS%E9%80%82%E9%85%8D%E5%B0%8F%E4%BC%98%E5%8C%96/iOS9%20%E4%BA%BA%E6%B0%91%E5%B8%81%E7%AC%A6%E5%8F%B7%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/05/15/iOS适配小优化/iOS9 人民币符号适配问题/</id>
     <published>2018-05-15T13:14:43.000Z</published>
     <updated>2018-08-08T01:23:55.571Z</updated>
     
@@ -189,23 +189,23 @@
     
     </summary>
     
-      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://xfnicar.tech/tags/NSString/"/>
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
-      <category term="小优化" scheme="http://xfnicar.tech/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
-      <category term="kCFNumberFormatterCurrencyStyle" scheme="http://xfnicar.tech/tags/kCFNumberFormatterCurrencyStyle/"/>
+      <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
   </entry>
   
   <entry>
     <title>用CollectionView实现环形布局</title>
-    <link href="http://xfnicar.tech/2018/05/10/CollectionView/CollectionView%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
-    <id>http://xfnicar.tech/2018/05/10/CollectionView/CollectionView实现环形布局/</id>
+    <link href="http://yoursite.com/2018/05/10/CollectionView/CollectionView%E5%AE%9E%E7%8E%B0%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2018/05/10/CollectionView/CollectionView实现环形布局/</id>
     <published>2018-05-09T17:08:43.000Z</published>
     <updated>2018-08-08T02:22:27.568Z</updated>
     
@@ -217,23 +217,23 @@
     
     </summary>
     
-      <category term="编程" scheme="http://xfnicar.tech/categories/%E7%BC%96%E7%A8%8B/"/>
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
     
     
-      <category term="iOS开发" scheme="http://xfnicar.tech/tags/iOS%E5%BC%80%E5%8F%91/"/>
+      <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="环形布局" scheme="http://xfnicar.tech/tags/%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
+      <category term="环形布局" scheme="http://yoursite.com/tags/%E7%8E%AF%E5%BD%A2%E5%B8%83%E5%B1%80/"/>
     
-      <category term="UICollectionView" scheme="http://xfnicar.tech/tags/UICollectionView/"/>
+      <category term="UICollectionView" scheme="http://yoursite.com/tags/UICollectionView/"/>
     
-      <category term="UICollectionViewFlowLayout" scheme="http://xfnicar.tech/tags/UICollectionViewFlowLayout/"/>
+      <category term="UICollectionViewFlowLayout" scheme="http://yoursite.com/tags/UICollectionViewFlowLayout/"/>
     
   </entry>
   
   <entry>
     <title>程序员应该知道自己要做什么</title>
-    <link href="http://xfnicar.tech/2017/07/16/H.264/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
-    <id>http://xfnicar.tech/2017/07/16/H.264/程序人生/</id>
+    <link href="http://yoursite.com/2017/07/16/H.264/%E7%A8%8B%E5%BA%8F%E4%BA%BA%E7%94%9F/"/>
+    <id>http://yoursite.com/2017/07/16/H.264/程序人生/</id>
     <published>2017-07-16T12:33:43.000Z</published>
     <updated>2018-08-28T15:38:31.760Z</updated>
     
