@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YanYi&#39;s Blog">
 <meta property="og:description" content="由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-10T12:34:55.595Z">
+<meta property="og:updated_time" content="2018-09-10T12:44:20.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WKWebView &amp;&amp; UIWebView 实现 OC与JS交互">
 <meta name="twitter:description" content="由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互">
@@ -342,7 +342,8 @@
       
 
       
-        <h1 id="OC-And-JS-Interaction"><a href="#OC-And-JS-Interaction" class="headerlink" title="OC-And-JS-Interaction"></a>OC-And-JS-Interaction</h1><p>相关示例<a href="https://github.com/XFNicar/OC-and-JS-interaction" target="_blank" rel="noopener">源码</a>在这里</p>
+        <!--# OC-And-JS-Interaction-->
+<p>相关示例<a href="https://github.com/XFNicar/OC-and-JS-interaction" target="_blank" rel="noopener">源码</a>在这里</p>
 <h2 id="为什么需要交互"><a href="#为什么需要交互" class="headerlink" title="为什么需要交互"></a>为什么需要交互</h2><blockquote>
 <p>由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互。</p>
 </blockquote>
@@ -416,7 +417,7 @@
 <p>这里比<strong>WKWebView</strong>稍微复杂一些，但是基本原理是一样的，<strong>UIWebView</strong>这里使用<strong>JSValue</strong>对象来实现，设置所调用的JS函数与参数与<strong>WKWebView</strong>是一样的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#pragma mark - Public</span><br><span class="line">// 通过 JSValue 对象发送消息给 WEB 页面</span><br><span class="line">- (void)sendMessageToWebView:(UIBarButtonItem *)sender &#123;</span><br><span class="line">	JSValue *jsObject = self.jsContext[@&quot;receiveMsgFromApp&quot;];</span><br><span class="line">	NSString *param = [NSString stringWithFormat:@&quot;%@\n%@\n%@\n详细信息：%@&quot;,@&quot;商品获取成功&quot;,@&quot;商品名称:哈哈&quot;,@&quot;商品ID：123456&quot;,@&quot;这是商品信息&quot;];</span><br><span class="line">	NSString *callBackStr = [NSString stringWithFormat:@&quot;receiveMsgFromApp(%@)&quot;, param ];</span><br><span class="line">	[jsObject callWithArguments:@[callBackStr]];</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="OC与JS交互的简单介绍就到此未知了，如需深入了解，可以关注我的其他内容"><a href="#OC与JS交互的简单介绍就到此未知了，如需深入了解，可以关注我的其他内容" class="headerlink" title="OC与JS交互的简单介绍就到此未知了，如需深入了解，可以关注我的其他内容"></a>OC与JS交互的简单介绍就到此未知了，如需深入了解，可以关注我的其他内容</h2>
+<h2 id="OC与JS交互的简单介绍就到此为止了，如需深入了解，可以关注我的其他内容"><a href="#OC与JS交互的简单介绍就到此为止了，如需深入了解，可以关注我的其他内容" class="headerlink" title="OC与JS交互的简单介绍就到此为止了，如需深入了解，可以关注我的其他内容"></a>OC与JS交互的简单介绍就到此为止了，如需深入了解，可以关注我的其他内容</h2>
       
     </div>
     
@@ -599,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OC-And-JS-Interaction"><span class="nav-number">1.</span> <span class="nav-text">OC-And-JS-Interaction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要交互"><span class="nav-number">1.1.</span> <span class="nav-text">为什么需要交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WKWebView-amp-amp-UIWebView-实现-OC与JS交互"><span class="nav-number">1.2.</span> <span class="nav-text">WKWebView &amp;&amp; UIWebView 实现 OC与JS交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用WKWebView-实现-OC与JS交互"><span class="nav-number">1.2.1.</span> <span class="nav-text">用WKWebView 实现 OC与JS交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-UIWebView-实现-OC-与-JS-交互"><span class="nav-number">1.2.2.</span> <span class="nav-text">用 UIWebView 实现 OC 与 JS 交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OC与JS交互的简单介绍就到此未知了，如需深入了解，可以关注我的其他内容"><span class="nav-number">1.3.</span> <span class="nav-text">OC与JS交互的简单介绍就到此未知了，如需深入了解，可以关注我的其他内容</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要交互"><span class="nav-number">1.</span> <span class="nav-text">为什么需要交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WKWebView-amp-amp-UIWebView-实现-OC与JS交互"><span class="nav-number">2.</span> <span class="nav-text">WKWebView &amp;&amp; UIWebView 实现 OC与JS交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用WKWebView-实现-OC与JS交互"><span class="nav-number">2.1.</span> <span class="nav-text">用WKWebView 实现 OC与JS交互</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-UIWebView-实现-OC-与-JS-交互"><span class="nav-number">2.2.</span> <span class="nav-text">用 UIWebView 实现 OC 与 JS 交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OC与JS交互的简单介绍就到此为止了，如需深入了解，可以关注我的其他内容"><span class="nav-number">3.</span> <span class="nav-text">OC与JS交互的简单介绍就到此为止了，如需深入了解，可以关注我的其他内容</span></a></li></ol></div>
             
 
           </div>
