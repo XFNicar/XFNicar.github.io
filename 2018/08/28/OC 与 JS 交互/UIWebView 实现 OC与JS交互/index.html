@@ -83,18 +83,18 @@
 
 
 
-<meta name="description" content="由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互">
+<meta name="description" content="分别使用 WKWebView 与 UIWebView 实现OC与JS简单交互，以及有关交互业务方面的一点点建议。">
 <meta name="keywords" content="iOS开发,OC与JS交互,UIWebView,WKWebView">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WKWebView &amp;&amp; UIWebView 实现 OC与JS交互">
+<meta property="og:title" content="WKWebView 与 UIWebView 实现 OC与JS交互">
 <meta property="og:url" content="http://yoursite.com/2018/08/28/OC 与 JS 交互/UIWebView 实现 OC与JS交互/index.html">
 <meta property="og:site_name" content="YanYi&#39;s Blog">
-<meta property="og:description" content="由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互">
+<meta property="og:description" content="分别使用 WKWebView 与 UIWebView 实现OC与JS简单交互，以及有关交互业务方面的一点点建议。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-10T12:44:20.037Z">
+<meta property="og:updated_time" content="2018-09-10T12:55:49.642Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WKWebView &amp;&amp; UIWebView 实现 OC与JS交互">
-<meta name="twitter:description" content="由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互">
+<meta name="twitter:title" content="WKWebView 与 UIWebView 实现 OC与JS交互">
+<meta name="twitter:description" content="分别使用 WKWebView 与 UIWebView 实现OC与JS简单交互，以及有关交互业务方面的一点点建议。">
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>WKWebView && UIWebView 实现 OC与JS交互 | YanYi's Blog</title>
+  <title>WKWebView 与 UIWebView 实现 OC与JS交互 | YanYi's Blog</title>
   
 
 
@@ -266,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">WKWebView && UIWebView 实现 OC与JS交互</h1>
+          <h1 class="post-title" itemprop="name headline">WKWebView 与 UIWebView 实现 OC与JS交互</h1>
         
 
         <div class="post-meta">
@@ -325,7 +325,7 @@
 
           
               <div class="post-description">
-                  由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互。
+                  分别使用 WKWebView 与 UIWebView 实现OC与JS简单交互，以及有关交互业务方面的一点点建议。
               </div>
           
 
@@ -343,7 +343,7 @@
 
       
         <!--# OC-And-JS-Interaction-->
-<p>相关示例<a href="https://github.com/XFNicar/OC-and-JS-interaction" target="_blank" rel="noopener">源码</a>在这里</p>
+<p>相关<a href="https://github.com/XFNicar/OC-and-JS-interaction" target="_blank" rel="noopener">示例源码</a>在这里</p>
 <h2 id="为什么需要交互"><a href="#为什么需要交互" class="headerlink" title="为什么需要交互"></a>为什么需要交互</h2><blockquote>
 <p>由于原生开发的时间周期相对表较长，难免带来一些更新不灵活的问题，有时候为了业务的需要不得不在原生APP中嵌入一些以Web实现的内容，大部分都是静态页面，一般也不会进行二次跳转，而这些页面有时候也会做一些与原生APP进行交互的功能，这些功能通常需要事先制定相应的协议，这些协议中的方法一般会当做通用的API，方便三端在新的规则出现时不需要反复制定规则，只需要在方法中更改相应的参数即可实现新规则下的交互。</p>
 </blockquote>
