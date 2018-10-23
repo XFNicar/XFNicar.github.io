@@ -83,17 +83,17 @@
 
 
 
-<meta name="description" content="执行 brew install –HEAD libimobiledevice 报错  brew install –HEAD libimobiledevice  ==&amp;gt; ./autogen.sh  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:  checking dyn">
+<meta name="description" content="执行 brew install –HEAD libimobiledevice 报错brew install --HEAD libimobiledevice ==&amp;gt; ./autogen.sh Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh: checking dynamic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flutter环境配置报错:Requested &#39;libusbmuxd &gt;= 1.1.0&#39; but version of libusbmuxd is 1.0.10">
 <meta property="og:url" content="http://yoursite.com/2018/10/22/Flutter笔记/Flutter环境配置问题/index.html">
 <meta property="og:site_name" content="YanYi&#39;s Blog">
-<meta property="og:description" content="执行 brew install –HEAD libimobiledevice 报错  brew install –HEAD libimobiledevice  ==&amp;gt; ./autogen.sh  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:  checking dyn">
+<meta property="og:description" content="执行 brew install –HEAD libimobiledevice 报错brew install --HEAD libimobiledevice ==&amp;gt; ./autogen.sh Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh: checking dynamic">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-22T05:15:56.927Z">
+<meta property="og:updated_time" content="2018-10-23T02:56:49.986Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter环境配置报错:Requested &#39;libusbmuxd &gt;= 1.1.0&#39; but version of libusbmuxd is 1.0.10">
-<meta name="twitter:description" content="执行 brew install –HEAD libimobiledevice 报错  brew install –HEAD libimobiledevice  ==&amp;gt; ./autogen.sh  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:  checking dyn">
+<meta name="twitter:description" content="执行 brew install –HEAD libimobiledevice 报错brew install --HEAD libimobiledevice ==&amp;gt; ./autogen.sh Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh: checking dynamic">
 
 
 
@@ -315,15 +315,34 @@
       
 
       
-        <h2 id="执行-brew-install-–HEAD-libimobiledevice-报错"><a href="#执行-brew-install-–HEAD-libimobiledevice-报错" class="headerlink" title="执行 brew install –HEAD libimobiledevice 报错"></a>执行 brew install –HEAD libimobiledevice 报错</h2><p>  brew install –HEAD libimobiledevice<br>  ==&gt; ./autogen.sh<br>  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:<br>  checking dynamic linker characteristics… darwin18.0.0 dyld<br>  checking how to hardcode library paths into programs… immediate<br>  checking for pkg-config… /usr/local/opt/pkg-config/bin/pkg-config<br>  checking pkg-config is at least version 0.9.0… yes<br>  checking for libusbmuxd &gt;= 1.1.0… no<br>  configure: error: Package requirements (libusbmuxd &gt;= 1.1.0) were not met:</p>
-<p>  Requested ‘libusbmuxd &gt;= 1.1.0’ but version of libusbmuxd is 1.0.10</p>
-<p>  Consider adjusting the PKG_CONFIG_PATH environment variable if you<br>  installed software in a non-standard prefix.</p>
-<p>  Alternatively, you may set the environment variables libusbmuxd_CFLAGS<br>  and libusbmuxd_LIBS to avoid the need to call pkg-config.<br>  See the pkg-config man page for more details.</p>
-<p>  READ THIS: <a href="https://docs.brew.sh/Troubleshooting" target="_blank" rel="noopener">https://docs.brew.sh/Troubleshooting</a> </p>
-<p>##原因 </p>
-<p>很明显libimobiledevice已经更新了，那么我们肯定要安装新版本。</p>
-<p>###解决方案 </p>
-<p>既然直接安装不行，那就卸载重装</p>
+        <h2 id="执行-brew-install-–HEAD-libimobiledevice-报错"><a href="#执行-brew-install-–HEAD-libimobiledevice-报错" class="headerlink" title="执行 brew install –HEAD libimobiledevice 报错"></a>执行 brew install –HEAD libimobiledevice 报错</h2><pre><code>brew install --HEAD libimobiledevice
+==&gt; ./autogen.sh
+Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:
+checking dynamic linker characteristics... darwin18.0.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/local/opt/pkg-config/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libusbmuxd &gt;= 1.1.0... no
+configure: error: Package requirements (libusbmuxd &gt;= 1.1.0) were not met:
+
+Requested &apos;libusbmuxd &gt;= 1.1.0&apos; but version of libusbmuxd is 1.0.10
+
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+
+Alternatively, you may set the environment variables libusbmuxd_CFLAGS
+and libusbmuxd_LIBS to avoid the need to call pkg-config.
+See the pkg-config man page for more details.
+
+READ THIS: https://docs.brew.sh/Troubleshooting 
+</code></pre><ul>
+<li>原因 </li>
+</ul>
+<p><strong>很明显libimobiledevice已经更新了，那么我们肯定要安装新版本。</strong></p>
+<ul>
+<li>解决方案 </li>
+</ul>
+<p><strong>既然直接安装不行，那就卸载重装</strong></p>
 <p>  brew update<br>  brew uninstall –ignore-dependencies libimobiledevice<br>  brew uninstall –ignore-dependencies usbmuxd<br>  brew install –HEAD usbmuxd<br>  brew unlink usbmuxd<br>  brew link usbmuxd<br>  brew install –HEAD libimobiledevice</p>
 
       
@@ -349,8 +368,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/28/OC 与 JS 交互/UIWebView 实现 OC与JS交互/" rel="next" title="WKWebView 与 UIWebView 实现 OC与JS交互">
-                <i class="fa fa-chevron-left"></i> WKWebView 与 UIWebView 实现 OC与JS交互
+              <a href="/2018/10/22/OC 与 JS 交互/HTTPS网页在iPhone和Safari浏览器打不开，但是安卓和其他浏览器可以打开/" rel="next" title="未能完成该操作。协议错误 （NSPOSIXErrorDomain Code=100）">
+                <i class="fa fa-chevron-left"></i> 未能完成该操作。协议错误 （NSPOSIXErrorDomain Code=100）
               </a>
             
           </div>
@@ -358,10 +377,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/22/OC 与 JS 交互/HTTPS网页在iPhone和Safari浏览器打不开，但是安卓和其他浏览器可以打开/" rel="prev" title="未能完成该操作。协议错误 （NSPOSIXErrorDomain Code=100）">
-                未能完成该操作。协议错误 （NSPOSIXErrorDomain Code=100） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
