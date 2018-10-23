@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-22T05:15:56.927Z</updated>
+  <updated>2018-10-22T06:09:09.257Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Flutter环境配置报错:Requested &#39;libusbmuxd &gt;= 1.1.0&#39; but version of libusbmuxd is 1.0.10</title>
-    <link href="http://yoursite.com/2018/10/22/Flutter%E7%AC%94%E8%AE%B0/Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/10/22/Flutter笔记/Flutter环境配置问题/</id>
-    <published>2018-10-21T16:00:00.000Z</published>
-    <updated>2018-10-22T05:15:56.927Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="执行-brew-install-–HEAD-libimobiledevice-报错"><a href="#执行-brew-install-–HEAD-libimobiledevice-报错" class="headerlink" title="执行 brew install –HEAD libimobiledevice 报错"></a>执行 brew install –HEAD libimobiledevice 报错</h2><p>  brew install –HEAD libimobiledevice<br>  ==&gt; ./autogen.sh<br>  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:<br>  checking dynamic linker characteristics… darwin18.0.0 dyld<br>  checking how to hardcode library paths into programs… immediate<br>  checking for pkg-config… /usr/local/opt/pkg-config/bin/pkg-config<br>  checking pkg-config is at least version 0.9.0… yes<br>  checking for libusbmuxd &gt;= 1.1.0… no<br>  configure: error: Package requirements (libusbmuxd &gt;= 1.1.0) were not met:</p><p>  Requested ‘libusbmuxd &gt;= 1.1.0’ but version of libusbmuxd is 1.0.10</p><p>  Consider adjusting the PKG_CONFIG_PATH environment variable if you<br>  installed software in a non-standard prefix.</p><p>  Alternatively, you may set the environment variables libusbmuxd_CFLAGS<br>  and libusbmuxd_LIBS to avoid the need to call pkg-config.<br>  See the pkg-config man page for more details.</p><p>  READ THIS: <a href="https://docs.brew.sh/Troubleshooting" target="_blank" rel="noopener">https://docs.brew.sh/Troubleshooting</a> </p><p>##原因 </p><p>很明显libimobiledevice已经更新了，那么我们肯定要安装新版本。</p><p>###解决方案 </p><p>既然直接安装不行，那就卸载重装</p><p>  brew update<br>  brew uninstall –ignore-dependencies libimobiledevice<br>  brew uninstall –ignore-dependencies usbmuxd<br>  brew install –HEAD usbmuxd<br>  brew unlink usbmuxd<br>  brew link usbmuxd<br>  brew install –HEAD libimobiledevice</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;执行-brew-install-–HEAD-libimobiledevice-报错&quot;&gt;&lt;a href=&quot;#执行-brew-install-–HEAD-libimobiledevice-报错&quot; class=&quot;headerlink&quot; title=&quot;执行 brew in
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>未能完成该操作。协议错误 （NSPOSIXErrorDomain Code=100）</title>
@@ -60,6 +39,27 @@
       <category term="HTTPS" scheme="http://yoursite.com/tags/HTTPS/"/>
     
       <category term="协议错误" scheme="http://yoursite.com/tags/%E5%8D%8F%E8%AE%AE%E9%94%99%E8%AF%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Flutter环境配置报错:Requested &#39;libusbmuxd &gt;= 1.1.0&#39; but version of libusbmuxd is 1.0.10</title>
+    <link href="http://yoursite.com/2018/10/22/Flutter%E7%AC%94%E8%AE%B0/Flutter%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/10/22/Flutter笔记/Flutter环境配置问题/</id>
+    <published>2018-10-21T16:00:00.000Z</published>
+    <updated>2018-10-22T05:15:56.927Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="执行-brew-install-–HEAD-libimobiledevice-报错"><a href="#执行-brew-install-–HEAD-libimobiledevice-报错" class="headerlink" title="执行 brew install –HEAD libimobiledevice 报错"></a>执行 brew install –HEAD libimobiledevice 报错</h2><p>  brew install –HEAD libimobiledevice<br>  ==&gt; ./autogen.sh<br>  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:<br>  checking dynamic linker characteristics… darwin18.0.0 dyld<br>  checking how to hardcode library paths into programs… immediate<br>  checking for pkg-config… /usr/local/opt/pkg-config/bin/pkg-config<br>  checking pkg-config is at least version 0.9.0… yes<br>  checking for libusbmuxd &gt;= 1.1.0… no<br>  configure: error: Package requirements (libusbmuxd &gt;= 1.1.0) were not met:</p><p>  Requested ‘libusbmuxd &gt;= 1.1.0’ but version of libusbmuxd is 1.0.10</p><p>  Consider adjusting the PKG_CONFIG_PATH environment variable if you<br>  installed software in a non-standard prefix.</p><p>  Alternatively, you may set the environment variables libusbmuxd_CFLAGS<br>  and libusbmuxd_LIBS to avoid the need to call pkg-config.<br>  See the pkg-config man page for more details.</p><p>  READ THIS: <a href="https://docs.brew.sh/Troubleshooting" target="_blank" rel="noopener">https://docs.brew.sh/Troubleshooting</a> </p><p>##原因 </p><p>很明显libimobiledevice已经更新了，那么我们肯定要安装新版本。</p><p>###解决方案 </p><p>既然直接安装不行，那就卸载重装</p><p>  brew update<br>  brew uninstall –ignore-dependencies libimobiledevice<br>  brew uninstall –ignore-dependencies usbmuxd<br>  brew install –HEAD usbmuxd<br>  brew unlink usbmuxd<br>  brew link usbmuxd<br>  brew install –HEAD libimobiledevice</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;执行-brew-install-–HEAD-libimobiledevice-报错&quot;&gt;&lt;a href=&quot;#执行-brew-install-–HEAD-libimobiledevice-报错&quot; class=&quot;headerlink&quot; title=&quot;执行 brew in
+      
+    
+    </summary>
+    
     
   </entry>
   
@@ -241,9 +241,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
@@ -269,9 +269,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     

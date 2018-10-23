@@ -248,135 +248,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/Flutter笔记/Flutter环境配置问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="YanYi">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YanYi's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/22/Flutter笔记/Flutter环境配置问题/" itemprop="url">Flutter环境配置报错:Requested 'libusbmuxd >= 1.1.0' but version of libusbmuxd is 1.0.10</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-22T00:00:00+08:00">
-                2018-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="执行-brew-install-–HEAD-libimobiledevice-报错"><a href="#执行-brew-install-–HEAD-libimobiledevice-报错" class="headerlink" title="执行 brew install –HEAD libimobiledevice 报错"></a>执行 brew install –HEAD libimobiledevice 报错</h2><p>  brew install –HEAD libimobiledevice<br>  ==&gt; ./autogen.sh<br>  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:<br>  checking dynamic linker characteristics… darwin18.0.0 dyld<br>  checking how to hardcode library paths into programs… immediate<br>  checking for pkg-config… /usr/local/opt/pkg-config/bin/pkg-config<br>  checking pkg-config is at least version 0.9.0… yes<br>  checking for libusbmuxd &gt;= 1.1.0… no<br>  configure: error: Package requirements (libusbmuxd &gt;= 1.1.0) were not met:</p>
-<p>  Requested ‘libusbmuxd &gt;= 1.1.0’ but version of libusbmuxd is 1.0.10</p>
-<p>  Consider adjusting the PKG_CONFIG_PATH environment variable if you<br>  installed software in a non-standard prefix.</p>
-<p>  Alternatively, you may set the environment variables libusbmuxd_CFLAGS<br>  and libusbmuxd_LIBS to avoid the need to call pkg-config.<br>  See the pkg-config man page for more details.</p>
-<p>  READ THIS: <a href="https://docs.brew.sh/Troubleshooting" target="_blank" rel="noopener">https://docs.brew.sh/Troubleshooting</a> </p>
-<p>##原因 </p>
-<p>很明显libimobiledevice已经更新了，那么我们肯定要安装新版本。</p>
-<p>###解决方案 </p>
-<p>既然直接安装不行，那就卸载重装</p>
-<p>  brew update<br>  brew uninstall –ignore-dependencies libimobiledevice<br>  brew uninstall –ignore-dependencies usbmuxd<br>  brew install –HEAD usbmuxd<br>  brew unlink usbmuxd<br>  brew link usbmuxd<br>  brew install –HEAD libimobiledevice</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/OC 与 JS 交互/HTTPS网页在iPhone和Safari浏览器打不开，但是安卓和其他浏览器可以打开/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -477,6 +348,135 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/22/Flutter笔记/Flutter环境配置问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YanYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanYi's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/22/Flutter笔记/Flutter环境配置问题/" itemprop="url">Flutter环境配置报错:Requested 'libusbmuxd >= 1.1.0' but version of libusbmuxd is 1.0.10</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-22T00:00:00+08:00">
+                2018-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="执行-brew-install-–HEAD-libimobiledevice-报错"><a href="#执行-brew-install-–HEAD-libimobiledevice-报错" class="headerlink" title="执行 brew install –HEAD libimobiledevice 报错"></a>执行 brew install –HEAD libimobiledevice 报错</h2><p>  brew install –HEAD libimobiledevice<br>  ==&gt; ./autogen.sh<br>  Last 15 lines from /Users/YanYi/Library/Logs/Homebrew/libimobiledevice/01.autogen.sh:<br>  checking dynamic linker characteristics… darwin18.0.0 dyld<br>  checking how to hardcode library paths into programs… immediate<br>  checking for pkg-config… /usr/local/opt/pkg-config/bin/pkg-config<br>  checking pkg-config is at least version 0.9.0… yes<br>  checking for libusbmuxd &gt;= 1.1.0… no<br>  configure: error: Package requirements (libusbmuxd &gt;= 1.1.0) were not met:</p>
+<p>  Requested ‘libusbmuxd &gt;= 1.1.0’ but version of libusbmuxd is 1.0.10</p>
+<p>  Consider adjusting the PKG_CONFIG_PATH environment variable if you<br>  installed software in a non-standard prefix.</p>
+<p>  Alternatively, you may set the environment variables libusbmuxd_CFLAGS<br>  and libusbmuxd_LIBS to avoid the need to call pkg-config.<br>  See the pkg-config man page for more details.</p>
+<p>  READ THIS: <a href="https://docs.brew.sh/Troubleshooting" target="_blank" rel="noopener">https://docs.brew.sh/Troubleshooting</a> </p>
+<p>##原因 </p>
+<p>很明显libimobiledevice已经更新了，那么我们肯定要安装新版本。</p>
+<p>###解决方案 </p>
+<p>既然直接安装不行，那就卸载重装</p>
+<p>  brew update<br>  brew uninstall –ignore-dependencies libimobiledevice<br>  brew uninstall –ignore-dependencies usbmuxd<br>  brew install –HEAD usbmuxd<br>  brew unlink usbmuxd<br>  brew link usbmuxd<br>  brew install –HEAD libimobiledevice</p>
+
+          
         
       
     </div>
