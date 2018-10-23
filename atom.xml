@@ -241,9 +241,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="iOS 10.3 代码适配问题" scheme="http://yoursite.com/tags/iOS-10-3-%E4%BB%A3%E7%A0%81%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="UILabel" scheme="http://yoursite.com/tags/UILabel/"/>
     
@@ -269,9 +269,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
