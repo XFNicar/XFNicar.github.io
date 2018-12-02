@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS, 编程" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="YanYi's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="用 cocoapods 创建私有库写在前面 文章主要部分  写在前面 关于cocoapods的一些小知识 两个重要的仓库 上手集成  如果不需要细究cocoapods的一些工作细节，那么我们可以直接开始上手集成  ##关于cocoapods的一些小知识   来到这里的小伙伴，通常都已经有了使用cocoapods的经验，那么废话不多说，我们直接在终端打开目录  $ open ~/.cocoapods">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YanYi&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/2018/12/03/cocoapods/用 cocoapods 创建私有库/index.html">
+<meta property="og:site_name" content="YanYi&#39;s Blog">
+<meta property="og:description" content="用 cocoapods 创建私有库写在前面 文章主要部分  写在前面 关于cocoapods的一些小知识 两个重要的仓库 上手集成  如果不需要细究cocoapods的一些工作细节，那么我们可以直接开始上手集成  ##关于cocoapods的一些小知识   来到这里的小伙伴，通常都已经有了使用cocoapods的经验，那么废话不多说，我们直接在终端打开目录  $ open ~/.cocoapods">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-02T17:24:08.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="YanYi&#39;s Blog">
+<meta name="twitter:description" content="用 cocoapods 创建私有库写在前面 文章主要部分  写在前面 关于cocoapods的一些小知识 两个重要的仓库 上手集成  如果不需要细究cocoapods的一些工作细节，那么我们可以直接开始上手集成  ##关于cocoapods的一些小知识   来到这里的小伙伴，通常都已经有了使用cocoapods的经验，那么废话不多说，我们直接在终端打开目录  $ open ~/.cocoapods">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/03/cocoapods/用 cocoapods 创建私有库/"/>
+
+
+
+
+
+  <title> | YanYi's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/XFNicar" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">YanYi's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">猴子每天都会爬树摘果子，猴子不再爬树了，可能是树上没果子了，也可能猴子已经不再是猴子。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/cocoapods/用 cocoapods 创建私有库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="YanYi">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YanYi's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-03T01:24:08+08:00">
+                2018-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="用-cocoapods-创建私有库"><a href="#用-cocoapods-创建私有库" class="headerlink" title="用 cocoapods 创建私有库"></a>用 cocoapods 创建私有库</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a><a name="markdown-pane-写在前面"></a>写在前面</h2><blockquote>
+<p><strong>文章主要部分</strong></p>
+<blockquote>
+<p><a href="#markdown-pane-写在前面"><strong>写在前面</strong></a></p>
+<p><a href="#markdown-pane-关于cocoapods的一些小知识"><strong>关于cocoapods的一些小知识</strong></a></p>
+<p><a href="#markdown-pane-两个重要的仓库"><strong>两个重要的仓库</strong></a></p>
+<p><a href="#markdown-pane-上手集成"><strong>上手集成</strong></a></p>
+</blockquote>
+<p>如果不需要细究<strong><code>cocoapods</code></strong>的一些工作细节，那么我们可以直接开始<a href="#markdown-pane-上手集成"><strong>上手集成</strong></a></p>
+</blockquote>
+<p>##<a name="markdown-pane-关于cocoapods的一些小知识"></a>关于cocoapods的一些小知识 </p>
+<blockquote>
+<p><strong>来到这里的小伙伴，通常都已经有了使用<code>cocoapods</code>的经验，那么废话不多说，我们直接在终端打开目录</strong></p>
+</blockquote>
+<pre><code>$ open ~/.cocoapods/repos
+</code></pre><blockquote>
+<p><strong>接下来我们可以看到如下目录结构</strong></p>
+</blockquote>
+<pre><code>.                                            
+├── Specs                                # 索引库列表
+    └── [REPO_NAME]                     # 索引库名（其中master为cocoapods官方索引库）
+        └── [SPEC_NAME]                    # 第三方库名
+            └── [VERSION]                # 第三方库版本
+                  └── [SPEC_NAME].podspec    # 第三方库的版本说明文件
+</code></pre><blockquote>
+<p>根据以上目录我们不难看出，索引库中存着不同名称的索引库，即<strong><code>spec repo</code></strong>（没有私有库的话，只有一个<strong><code>master</code></strong>），在索引库<strong><code>spec repo</code></strong>目录下才包含各种以第三方库名命名的文件夹<strong><code>如：AFNetworking</code></strong>，在这些文件夹下包含以不同版本号命名的文件夹<strong><code>如3.0.0等</code></strong>，再点开就会看到一个诸如<strong><code>AFNetworking.podspec</code></strong>的文件，那么这个就是有关于<strong><code>AFNetworking</code></strong>这个库在<strong><code>3.0.0</code></strong>版本下的描述文件，关于这个目录我们就先了解到这里，并没有任何难点，是不是挺无聊，那么由浅入深，我们接着往下走。</p>
+</blockquote>
+<p><strong>关于cocoapods的一些基本工作原理</strong></p>
+<ul>
+<li><p>我们把cocoapods 想象成一个工具，当我们运行 <code>pod install</code> 的时候，他帮我们做了两件事情，事实上，<strong><code>cocoapods</code></strong>为我们所有我们看得见看不见的工作，其根本目的就是以下两点：</p>
+<pre><code>1. 帮我们找到我们需要的库
+
+2. 把我们需要的库集成到我们的工程里面
+</code></pre></li>
+<li><p><strong>对于第一件事情，相信绝大多数的人单从字面意思都可以很容易理解</strong>，甚至很多人都会进一步思考<strong><code>cocoapods</code></strong>究竟是怎么帮我们搜的，那么我们一会就来探究一下<strong><code>cocoapods</code></strong>是怎么为开发者做到这第一件事情的吧。</p>
+</li>
+<li><p>关于cocoapods为我们做的第二件事情，里面包含着许多的细节性工作，鉴于个人能力目前也不在这个范围内，这里也就无法细述，但并不影响我们接下来的所有工作。</p>
+</li>
+</ul>
+<p>##<a name="markdown-pane-两个重要的仓库"></a>两个重要的仓库 </p>
+<h3 id="spec-repository-描述文件仓库-即索引库"><a href="#spec-repository-描述文件仓库-即索引库" class="headerlink" title="spec repository 描述文件仓库(即索引库)"></a>spec repository 描述文件仓库(即索引库)</h3><p>通常我们指的是<strong><code>cocoapods</code></strong>项目在GitHub上<strong>存放各种第三方库的版本描述文件<code>.podspec</code>的仓库</strong>（称之为<strong>索引库</strong>），也就是<strong><a href="https://github.com/CocoaPods/Specs" target="_blank" rel="noopener">官方Spec Repo</a></strong> ，当你使用<strong><code>cocoapods</code></strong>时，它就会被clone到你的本地。这个仓库在<strong><code>cocoapods</code></strong>的设计中起到了关键的一环。</p>
+<p>当你用<strong><code>cocoapods</code></strong>项工程中导入某个库的的时候，首先要做的事情就是寻找你在<strong><code>.Podfile</code></strong>文件里添加的相关库的在哪里，那么我们是不是应该要想，去哪里找呢？答案呢当然是clone到本地的<strong><code>cocoapods</code></strong>索引库<strong><code>spec repo</code></strong>了。</p>
+<p>现在我们就简单来扒一下我们每次在终端执行<code>pod install</code> 究竟做了些什么：</p>
+<ul>
+<li><p><strong><code>$ pod install</code></strong> </p>
+</li>
+<li><p><strong>到<code>Podfile</code>中提取<code>pod &#39;AFNetworking&#39;, &#39;~&gt; 1.1.1&#39;</code></strong></p>
+</li>
+<li><p><strong>到clone到本地的索引库<code>spec repo</code>中搜索名为<code>AFNetworking</code>的文件夹</strong></p>
+</li>
+<li><p><strong>在找到的<code>AFNetworking</code>目录下寻找名为<code>1.1.1</code>的文件夹</strong></p>
+</li>
+<li><p><strong>根据<code>1.1.1</code>文件夹中的<code>AFNetworking.podspec</code> 版本描述文件中的具体信息去相应的代码仓库下载or拷贝<code>AFNetworking 1.1.1</code>版本的相关代码</strong></p>
+</li>
+<li><p><strong>将<code>AFNetworking 1.1.1</code>版本的代码集成到我们工程中</strong></p>
+</li>
+</ul>
+<h3 id="code-repository-（第三方库的代码仓库）"><a href="#code-repository-（第三方库的代码仓库）" class="headerlink" title="code repository （第三方库的代码仓库）"></a>code repository （第三方库的代码仓库）</h3><ul>
+<li><strong><code>code repo</code></strong> 是各种第三方库的实际代码存放仓库，一般托管在<code>GitHub</code>、<code>gitlab</code>等代码托管网站或私有服务器上。该仓库中附带也会包含一个当前库的版本描述文件<strong><code>.podspec</code></strong>文件，<strong><code>.podspec</code></strong>文件中包含该库当前版本的详细描述，后面会做详细解释说明。</li>
+</ul>
+<p>##<a name="markdown-pane-上手集成"></a>上手集成</p>
+<ol>
+<li><p><strong>安装<code>cocopods</code></strong> </p>
+<blockquote>
+<p>如果没有安装的同学，网上有很多教程，随便搜就可以找到很多。</p>
+</blockquote>
+</li>
+<li><p><strong>在<code>GitHub、gitlab</code>等网站/服务器上创建私有的代码仓库 <code>code repo</code>，比如我们创建一个<code>VeryNBKit</code>仓库</strong></p>
+<blockquote>
+<p>在代码托管网站上创建私有的代码仓库，用来保存你的私有库中的代码。</p>
+</blockquote>
+</li>
+<li><p><strong>在<code>GitHub、gitlab</code>等网站/服务器上创建私有索引库 <code>spec repo</code></strong></p>
+<blockquote>
+<p>在前面的<a href="#markdown-pane-关于cocoapods的一些小知识">小知识</a>中，我们提到在 <code>~/.cocoapods/repos</code> 目录下包含有不同名称的索引库，其中<strong><code>master</code></strong>为<code>cocoapods</code>官方的索引库，也就是绝大多数公有库的索引库，如果我们写的<strong>私有库代码</strong>都非常牛逼，又不想开源，又想使用<strong><code>cocoapods</code></strong>来管理我们的<strong>私有代码库</strong>，那么我们干脆就把我们的<strong>私有索引库</strong>命名为<strong><code>VeryNBSpecs</code></strong>。</p>
+<p>到此为止，我们的两个重要的仓库就创建完毕了，接下来的工作将需要更加细心了。</p>
+</blockquote>
+</li>
+<li><p><strong>将仓库clone到本地</strong></p>
+<pre><code>$ git clone https://github.com/YourName/VeryNBKit.git
+</code></pre></li>
+<li><p><strong>在仓库根目录创建Xcode工程</strong></p>
+<blockquote>
+<p>创建VeryNBKit 项目工程</p>
+</blockquote>
+</li>
+<li><p><strong>在Xcode中编写相关代码</strong></p>
+<blockquote>
+<p>编写VeryNBKit 中那些牛逼的代码</p>
+</blockquote>
+</li>
+<li><p><strong>创建 VeryNBKit.podspec 文件  (VeryNBKit为牛逼的库名)</strong></p>
+<blockquote>
+<p>我们知道，当我们光写完这些牛逼的代码，上传到代码托管服务器上之后，<strong><code>cocoapods</code></strong>并不知道我们这些牛逼的代码在哪里，如果我们在Podflie中写到<code>pod &#39;VeryNBKit&#39;, &#39;~&gt; 1.1.1&#39;</code>，然后在终端执行<code>pod install</code>，其实<code>cocoapods</code>并不能认识（找到）我们的牛逼代码，这么牛逼的代码你不认识，那逼没法装下去了呀，这可是不行的！！！</p>
+<p>我们知道，<code>cocoapods</code>必须要通过<code>.podspec</code>文件来定位我们牛逼的代码在哪里，然后才能把代码拷贝过来集成到我们的工程里，那么废话不说，直接将<code>.podspec</code>文件甩到<code>cocoapods</code>脸上看他认识不认识。</p>
+</blockquote>
+<p> <strong>打开终端，直接来到<code>VeryNBKit</code>工程的根目录下，执行如下指令，将会为我们创建<code>VeryNBKit.podspec</code>文件。</strong></p>
+<pre><code>$ pod spec create VeryNBKit 
+</code></pre><p> <strong>现在<code>.podspec</code>文件有了，接下来在这个文件中加点信息，告诉<code>cocoapods</code>在哪里找我们的<code>VeryNBKit</code>。</strong></p>
+</li>
+<li><p><strong>编辑 VeryNBKit.podspec 文件</strong></p>
+<pre><code>Pod::Spec.new do |s|
+      s.name         = &quot;VeryNBKit&quot; # 项目名称
+      s.version      = &quot;0.0.1&quot;        # 版本号 与 你仓库的 标签号 对应
+      s.license      = &quot;MIT&quot;          # 开源证书
+      s.summary      = &quot;A delightful TextField of VeryNBKit&quot; # 项目简介
+
+      s.homepage     = &quot;https://github.com/YourName/VeryNBKit&quot; # 你的主页
+      s.source       = { :git =&gt; &quot;https://github.com/YourName/VeryNBKit.git&quot;, :tag =&gt;             &quot;#{s.version}&quot; }#你的仓库地址，不能用SSH地址
+      s.source_files  = &quot;VeryNBKit/VeryNBKit/*.{h,m}&quot;&quot;
+      # 你代码的位置，以上路径以.podspec文件所在位置为根目录，一直到实际代码所在位置为止，说明如下
+      # VeryNBKit/VeryNBKit/*.{h,m} 
+      # VeryNBKit/VeryNBKit/**/*.{h,m}
+     # 表示 VeryNBKit/VeryNBKit/ 和 VeryNBKit/VeryNBKit/ 文件夹下所有.h和.m文件，以及其子目录下的.h和.m文件
+      s.requires_arc = true # 是否启用ARC
+      s.platform     = :ios, &quot;7.0&quot; #平台及支持的最低版本
+      s.frameworks   = &quot;UIKit&quot;, &quot;Foundation&quot; #支持的框架
+      # s.dependency   = &quot;AFNetworking&quot; # 依赖库 （如有）
+
+      # User
+      s.author             = { &quot;YourName&quot; =&gt; &quot;YourName@gmail.com&quot; } # 作者信息
+      s.social_media_url   = &quot;https://YourName.github.io&quot; # 个人主页
+
+end
+</code></pre></li>
+<li><p><strong>按照如上内容填好之后，我们需要验证podspec文件</strong>    </p>
+<pre><code>$ pod lib lint
+</code></pre><blockquote>
+<p>当我们看到如下提示，则说明验证通过了</p>
+</blockquote>
+<pre><code>-&gt; VeryNBKit (0.0.1)
+- NOTE  | xcodebuild:  note: Using new build system
+- NOTE  | [iOS] xcodebuild:  note: Planning build
+- NOTE  | [iOS] xcodebuild:  note: Constructing build description
+- NOTE  | [iOS] xcodebuild:  warning: Skipping code signing because the target does not have an Info.plist file. (in target &apos;App&apos;)
+
+VeryNBKit passed validation.
+</code></pre></li>
+<li><p><strong><code>VeryNBKit.podspec</code>验证通过之后，我们就需要把代码上传到代码库了</strong></p>
+<pre><code>$ git add .
+$ git commit -m &quot;提交信息&quot;
+$ git push origin master
+
+给仓库打标签
+标签相当于将你的仓库的一个压缩包，用于稳定存储当前版本。
+标签号与你在 s.version = &quot;1.0.0&quot;的版本号一致 1.0.0
+
+$ git tag -a XXX -m &quot;发布XXX版本&quot; 
+$ git push origin --tags
+</code></pre></li>
+<li><p><strong>发布 <code>VeryNBKit.podspec</code></strong></p>
+<p>将<code>VeryNBKit.podspec</code>发布之前，我们是否还记得我们的私有索引库<code>VeryNBSpecs</code>，没错，如果我们发布到私有库，那么就需要先把我们的<code>VeryNBSpecs</code>添加到我们的<code>spec repo</code>列表中去，在终端中执行如下命令：</p>
+<pre><code>$ pod repo add VeryNBSpecs https://gitlab.com/YourName/VeryNBSpecs.git
+</code></pre><p>完了之后，我们可以打开<code>~/.cocoapods/repos</code></p>
+<pre><code>$ open ~/.cocoapods/repos
+</code></pre><p>是不是会惊喜的发现，多了一个<code>VeryNBSpecs</code>文件夹，没错，就是我们的牛逼代码索引库。</p>
+<p>最后我们将<code>VeryNBKit.podspec</code> push到<code>VeryNBSpecs</code>索引库</p>
+<pre><code>$ pod repo push VeryNBSpecs VeryNBKit.podspec 
+</code></pre></li>
+<li><p><strong>pod搜索一下我们的<code>VeryNBKit</code></strong></p>
+<pre><code>$ pod search VeryNBKit
+</code></pre><p>搜到了吧，恭喜你，成功了！！！</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/03/cocoapods/用 cocoapods 创建公有库/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">YanYi</p>
+              <p class="site-description motion-element" itemprop="description">It is loneliness that makes you different,not gregariousness.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#用-cocoapods-创建私有库"><span class="nav-number">1.</span> <span class="nav-text">用 cocoapods 创建私有库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.1.</span> <span class="nav-text">写在前面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spec-repository-描述文件仓库-即索引库"><span class="nav-number">1.1.1.</span> <span class="nav-text">spec repository 描述文件仓库(即索引库)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#code-repository-（第三方库的代码仓库）"><span class="nav-number">1.1.2.</span> <span class="nav-text">code repository （第三方库的代码仓库）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">YanYi</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!--  -->
+
+</body>
+</html>
