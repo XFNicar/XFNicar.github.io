@@ -91,7 +91,7 @@
 <meta property="og:site_name" content="YanYi&#39;s Blog">
 <meta property="og:description" content="导入或更新TencentOpenApi运行报错Undefined symbols for architecture arm64:&quot;l_OBJC_PROTOCOL_$_TencentApiInterfaceDelegate&quot;, referenced from:l_OBJC_CLASS_PROTOCOLS_$_AppDelegate in AppDelegate.o">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-11T08:30:35.489Z">
+<meta property="og:updated_time" content="2019-01-11T08:35:29.757Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="导入、更新TencentOpenApi 运行报错">
 <meta name="twitter:description" content="导入或更新TencentOpenApi运行报错Undefined symbols for architecture arm64:&quot;l_OBJC_PROTOCOL_$_TencentApiInterfaceDelegate&quot;, referenced from:l_OBJC_CLASS_PROTOCOLS_$_AppDelegate in AppDelegate.o">
@@ -342,9 +342,11 @@
       
 
       
-        <ul>
-<li><p>一些发现和建议：我这里使用SDK实现QQ平台的相关分享功能。网上其实也有蛮多相关的文章提到了这个错误，但是都没有明确说明是什么问题，或者只是告诉你怎么处理之后就好了，但是并没细致分析是什么原因。其实这是个很简单的问题，恨只能恨很多同学看到英文报错就内心发慌，其实没几个单词，看仔细点就知道是什么原因了，接下来我们就分析：</p>
-</li>
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><ul>
+<li>一些发现和建议：我这里使用SDK实现QQ平台的相关分享功能。网上其实也有蛮多相关的文章提到了这个错误，但是都没有明确说明是什么问题，或者只是告诉你怎么处理之后就好了，但是并没细致分析是什么原因。其实这是个很简单的问题，恨只能恨很多同学看到英文报错就内心发慌，其实没几个单词，看仔细点就知道是什么原因了。</li>
+</ul>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p><strong>接下来我们就分析：</strong></p>
+<ul>
 <li><p><strong>导入TencentOpenApi SDK，或者更新TencentOpenApi之后运行报如下错误</strong></p>
 <p>  Undefined symbols for architecture arm64:</p>
 <pre><code>&quot;l_OBJC_PROTOCOL_$_TencentApiInterfaceDelegate&quot;, referenced from:
@@ -363,12 +365,15 @@ l_OBJC_CLASS_PROTOCOLS_$_AppDelegate in AppDelegate.o
 <pre><code>@interface AppDelegate ()&lt;JPUSHRegisterDelegate,TencentApiInterfaceDelegate&gt; {
 TencentOAuth    *_TencentOAuth;
 }
-</code></pre><p><strong>发现APPdelegate引用的协议中有一个警告<code>Cannot find protocol definition for &#39;TencentApiInterfaceDelegate&#39;</code>，提示我们没有找到该协议的定义：</strong></p>
+</code></pre><ul>
+<li><strong>发现APPdelegate引用的协议中有一个警告<code>Cannot find protocol definition for &#39;TencentApiInterfaceDelegate&#39;</code>，提示我们没有找到该协议的定义：</strong></li>
+</ul>
 </li>
 </ol>
 <!-- <img src="2019/01/11/TencentOpenApi填坑/2019/01/11/TencentOpenApi填坑/协议警告1.0.jpg" alt="引用协议警告"> -->
 <!-- ![引用协议警告](TencentOpenApi填坑/协议警告1.0.jpg) -->
-<p> <strong>由于我是在很久之前就使用了这个SDK，最近为了将项目组件化，顺便把SDK也做了更新,并做了组件化封装，所以这里是老代码，以前这里没有改过</strong>，那么我们点到这个协议的相关代码去看看究竟：</p>
+<ul>
+<li><p><strong>由于我是在很久之前就使用了这个SDK，最近为了将项目组件化，顺便把SDK也做了更新,并做了组件化封装，所以这里是老代码，以前这里没有改过</strong>，那么我们点到这个协议的相关代码去看看究竟：</p>
 <pre><code>#import &lt;UIKit/UIKit.h&gt;
 #import &quot;sdkdef.h&quot;
 
@@ -379,9 +384,11 @@ TencentOAuth    *_TencentOAuth;
 
 @class TencentApiReq;
 @class TencentApiResp;
-</code></pre><!-- <img src="/2019/01/11/TencentOpenApi填坑/协议警告1.0.jpg" alt="TencentApiInterfaceDelegate定义源码"> -->
-<!-- ![TencentApiInterfaceDelegate定义源码](TencentOpenApi填坑/协议列表1.0.jpg) -->
-<p><strong>然后我们可以看到，果不其然，这四个协议除了在这里进行了名称定义之外，完全没有具体的定义，我在全局搜索一下也没有搜到，那么问题就简单了，没有实现，说明没用呗，我们还要啥自行车。你遗弃了老东西自然要把新的API拿出来，既然我是要QQ分享，那么就从QQApiInterface中去找，果不其然，在QQApiInterface.h中找到如下信息：</strong></p>
+</code></pre></li>
+</ul>
+<ul>
+<li><strong>然后我们可以看到，果不其然，这四个协议除了在这里进行了名称定义之外，完全没有具体的定义，我在全局搜索一下也没有搜到，那么问题就简单了，没有实现，说明没用呗，我们还要啥自行车。你遗弃了老东西自然要把新的API拿出来，既然我是要QQ分享，那么就从QQApiInterface中去找，果不其然，在QQApiInterface.h中找到如下信息：</strong></li>
+</ul>
 <pre><code>/**
 \brief 处理来至QQ的请求及响应的回调协议
 */
@@ -394,21 +401,21 @@ TencentOAuth    *_TencentOAuth;
 
 /**
 处理来至QQ的响应
-*/
+ */
 - (void)onResp:(QQBaseResp *)resp;
 
 /**
 处理QQ在线状态的回调
 */
-- (void)isOnlineResponse:(NSDictionary *)response;
+ - (void)isOnlineResponse:(NSDictionary *)response;
 
 @end
-</code></pre><ol>
-<li><p>那么我们引入<code>QQApiInterface.h</code>头文件，把<code>TencentApiInterfaceDelegate</code>替换成<code>QQApiInterfaceDelegate</code>再次运行，完美。</p>
-</li>
-<li><p>debug就算到此结束，但还有一点要吐槽的是，<strong>现在的工程都是比较大的，警告一般来说都非常多，像这种警告，很多人都不会在意</strong>，那么我想说的是，在腾讯的<strong>SDK中保留这种没有具体定义的协议</strong>，很容易给相关开发者带来这样的一些困扰，<strong>尤其是这种看起来是一个父协议，而在SDK中没有找到任何定义，也没有任何子协议继承</strong>，这就让人非常不解为什么要把代码写成这个样子。好吧，吐槽结束。希望大家能够给大家一点帮助。</p>
-</li>
-</ol>
+</code></pre><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><ul>
+<li>那么我们引入<code>QQApiInterface.h</code>头文件，把<code>TencentApiInterfaceDelegate</code>替换成<code>QQApiInterfaceDelegate</code>再次运行，完美。</li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><ul>
+<li>debug就算到此结束，但还有一点要吐槽的是，<strong>现在的工程都是比较大的，警告一般来说都非常多，像这种警告，很多人都不会在意</strong>，那么我想说的是，在腾讯的<strong>SDK中保留这种没有具体定义的协议</strong>，很容易给相关开发者带来这样的一些困扰，<strong>尤其是这种看起来是一个父协议，而在SDK中没有找到任何定义，也没有任何子协议继承</strong>，这就让人非常不解为什么要把代码写成这个样子。好吧，吐槽结束。希望大家能够给大家一点帮助。</li>
+</ul>
 
       
     </div>
@@ -503,8 +510,17 @@ TencentOAuth    *_TencentOAuth;
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -571,6 +587,22 @@ TencentOAuth    *_TencentOAuth;
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">4.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
