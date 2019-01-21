@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-11T08:35:29.757Z</updated>
+  <updated>2019-01-21T08:47:58.009Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通过cocoapods管理项目中的极光推送业务</title>
+    <link href="http://yoursite.com/2019/01/21/%E7%BB%84%E4%BB%B6%E5%8C%96/%E9%80%9A%E8%BF%87cocoapods%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81%E4%B8%9A%E5%8A%A1/"/>
+    <id>http://yoursite.com/2019/01/21/组件化/通过cocoapods管理项目中的极光推送业务/</id>
+    <published>2019-01-20T16:00:00.000Z</published>
+    <updated>2019-01-21T08:47:58.009Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="通过cocoapods管理项目中的极光推送业务"><a href="#通过cocoapods管理项目中的极光推送业务" class="headerlink" title="通过cocoapods管理项目中的极光推送业务"></a>通过cocoapods管理项目中的极光推送业务</h1><h2 id="第三方业务繁多带来的问题"><a href="#第三方业务繁多带来的问题" class="headerlink" title="第三方业务繁多带来的问题"></a>第三方业务繁多带来的问题</h2><ul><li>随着公司业务的不断扩展，开发工作中要面临的业务耦合问题越来越严重，一处修改全局生效的方案也越来越不能满足代码更新的需要，为了避免过多的二次coding，就要考虑去耦合，将各个小的业务逐渐从主业务代码中剥离出来成为一个独立的单元来管理，变得越来越迫切。在iOS开发行业中，很多优秀的组件化方案层出不穷，在这个过程中，由于第三方业务的接入，可能会导致某些功能在项目中到处引用，一旦发生变动，就需要全局找代码修改，因此，第三方库的组件化管理也将变得越来越重要。</li></ul><h2 id="对于极光推送业务API管理的一些想法"><a href="#对于极光推送业务API管理的一些想法" class="headerlink" title="对于极光推送业务API管理的一些想法"></a>对于极光推送业务API管理的一些想法</h2><ul><li>前几天更新了一个老项目里面的SDK，其中就包含极光推送的SDK，由于这块业务很少会发生变动，期间一直没有留意过，更新之后就发现，很多古老的API都废弃了，崩溃，项目中相关的API使用也有蛮多的，查看了相关的代买自后，发现，变化不是特别大，那么我可以将相关的API根据自身的业务需要进行二次封装（这里就不提了，本篇文章着重组件化）。随后又想了一下，如果以后再有类似的更新怎么办呢？我总不能每次都在主工程找代码改吧？那么组件化管理的方案首先就进入了我的脑海，毕竟前段时间将其他的SDK一股脑儿的全都从主工程干掉了，但是还没有将极光推送业务放进来，那正好收拾一下这一块。</li></ul><h2 id="使用cocoapods将极光推送业务进行组件化"><a href="#使用cocoapods将极光推送业务进行组件化" class="headerlink" title="使用cocoapods将极光推送业务进行组件化"></a>使用cocoapods将极光推送业务进行组件化</h2><ul><li><p><strong>首先把业务代码给写好，那么不废话，先上代码</strong></p><ul><li>JPushApiManagerDelegate 继承<code>JPUSHRegisterDelegate</code>协议，以方便扩展协议</li></ul></li></ul><pre><code>        @protocol JPushApiManagerDelegate &lt;JPUSHRegisterDelegate&gt;        @end* JPushApiManager 单利设计，同事提供注册业务API，注册极光服务只需一个API即可        @property (nonatomic, weak ) id&lt;JPushApiManagerDelegate&gt; delegate;        + (instancetype)sharedManager;        /**            注册极光服务            @param appKey appKey            @param launchOptions launchOptions            @param delegate delegate        */        - (void)setJPushAppKey:(nonnull NSString *)appKey             didFinishLaunchingWithOptions:(nonnull NSDictionary *)launchOptions delegate:(nonnull id&lt;JPushApiManagerDelegate&gt;)delegate;        @end* APPDelegate      **一行代码即可搞定，didfinishlaunching方法中的代码尽可能保持干净**        #import &quot;AppDelegate.h&quot;        #import &quot;JPushApiManager.h&quot;        static NSString * const JPushAppKey = @&quot;在这里填写你的极光推送AppKey&quot;;        @interface AppDelegate ()&lt;JPushApiManagerDelegate&gt;        @end        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {            [[JPushApiManager sharedManager] setJPushAppKey:JPushAppKey didFinishLaunchingWithOptions:launchOptions delegate:self];            return YES;        }* JPUSHRegisterDelegate **写到`APPdelegate`里**        // iOS 10 Support        - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center             willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {            // Required            NSDictionary * userInfo = notification.request.content.userInfo;            if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {            [JPUSHService handleRemoteNotification:userInfo];            }            completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置        }        // iOS 10 Support        - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {            // Required            NSDictionary * userInfo = response.notification.request.content.userInfo;            if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {                [JPUSHService handleRemoteNotification:userInfo];            }            completionHandler();        }        // iOS 12        - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(nullable UNNotification *)notification {        }        - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {            // Required, iOS 7 Support            [JPUSHService handleRemoteNotification:userInfo];            completionHandler(UIBackgroundFetchResultNewData);        }</code></pre><ul><li><p>至此，相关的编码工作就完成了，接下来就是使用cocoapods将代码进行组件化管理</p><ul><li><p>在工程根目录下运行如下代码</p><pre><code>$ pod spec create JPushApiManager$ vim JPushApiManager.podspec</code></pre></li><li><p>修改.podspec文件内容如下</p></li></ul></li></ul><pre><code>        Pod::Spec.new do |s|            s.name         = &quot;JPushApiManager&quot;            s.version      = &quot;3.1.2.1&quot;            s.summary      = &quot;组件化方式管理极光推送代码&quot;            s.description  = &lt;&lt;-DESC                组件化方式管理极光推送代码，以方便代码中一处修改全局生效               DESC            s.homepage     = &quot;https://github.com/XFNicar/JPushApiManager&quot;            s.license      = { :type =&gt; &quot;MIT&quot;, :file =&gt; &quot;LICENSE&quot; }            s.author             = { &quot;XieFei&quot; =&gt; &quot;xuejingwen25@163.com&quot; }            s.platform     = :ios, &quot;9.0&quot;            s.source       = { :git =&gt; &quot;https://github.com/XFNicar/JPushApiManager.git&quot;, :tag =&gt; &quot;#{s.version}&quot; }            s.source_files  = &quot;JPushApiManager/JPushApiManager/*.{h,m}&quot;            s.requires_arc = true            # s.ios.vendored_libraries = &apos;libs/*.a&apos;            s.dependency &quot;JPush&quot;, &quot;~&gt; 3.1.2&quot;        end* 提交代码        $ git add .        $ git commit -m &quot;nothing&quot;        $ git push origin master        $ git tag -a 3.1.2.1 -m &quot;发布3.1.2.1版本&quot;        $ git push origin --tags* 校验.podspec文件的正确性        $ pod lib lint --use-libraries --allow-warnings* 发布代码        $ pod trunk push JPushApiManager.podspec* 看到如下效果就说明发布成功了        --------------------------------------------------------------------------------        🎉  Congrats        🚀  JPushApiManager (3.1.2.1) successfully published        📅  January 20th, 23:10        🌎  https://cocoapods.org/pods/JPushApiManager        👍  Tell your friends!        --------------------------------------------------------------------------------* 在工程中导入代码        pod &apos;JPushApiManager&apos;, &apos;~&gt; 3.1.2.1&apos;</code></pre><h2 id="说在后面"><a href="#说在后面" class="headerlink" title="说在后面"></a>说在后面</h2><ul><li><p>至此极光推送业务组件化管理的相关工作就结束了，组件化带来的好处是很明显的，此次组件化的目的有三点：</p><pre><code>1. 如果项目中有部分需要主动触发推送业务的代码，那么就可以统一定制API，防止官方API发生改变之后，需要重新搜索代码来修改。2. 将业务进行剥离，可以单独在一个模块里管理极光推送业务。3. 让项目中代码更加干净整洁。4. 装逼。。。2333333</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      通过cocoapods进行组件化管理极光推送业务，提高代码管理质量，避免一处废弃，全局review的尴尬现象。
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
+    
+      <category term="极光推送" scheme="http://yoursite.com/tags/%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81/"/>
+    
+      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决pod lib lint xxx.podspec不支持i386编译环境</title>
+    <link href="http://yoursite.com/2019/01/21/%E7%BB%84%E4%BB%B6%E5%8C%96%E5%88%B0%E7%9A%84%E5%9D%91/pod%20lib%20lint%20pod%E4%B8%8D%E6%94%AF%E6%8C%81i386%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://yoursite.com/2019/01/21/组件化到的坑/pod lib lint pod不支持i386编译环境/</id>
+    <published>2019-01-20T16:00:00.000Z</published>
+    <updated>2019-01-21T08:38:39.190Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题发生"><a href="#问题发生" class="headerlink" title="问题发生"></a>问题发生</h2><ul><li><p>最近在准备将极光推送的SDK进行组件化管理的过程中，碰到了怎么都校验不通过的问题，一开始一直以为是我添加静态库的方式有问题吧，但事实上并没有，经过了多次修改之后，感到一丝灰心，报错信息如下：</p><pre><code>The following build commands failed:Ld /Users/YanYi/Library/Developer/Xcode/DerivedData/App-dokqufshqekrqxajlpsxnsqnccom/Build/Intermediates.noindex/App.build/Release-iphonesimulator/App.build/Objects-normal/i386/App normal i386(1 failure)Testing with `xcodebuild`.-&gt; JPushApiManager (3.1.2)- ERROR | [iOS] xcodebuild: Returned an unsuccessful exit code.</code></pre><p>其中有两条提示如下：</p></li></ul><pre><code>- NOTE  | [iOS] xcodebuild:  ld: warning: ignoring file /Users/YanYi/Desktop/PublicPodsCode/JPushApiManager/libs/libjcore-ios-1.2.6.a, missing required architecture i386 in file /Users/YanYi/Desktop/PublicPodsCode/JPushApiManager/libs/libjcore-ios-1.2.6.a (4 slices)- NOTE  | [iOS] xcodebuild:  ld: warning: ignoring file /Users/YanYi/Desktop/PublicPodsCode/JPushApiManager/libs/libjpush-ios-3.1.2.a, missing required architecture i386 in file /Users/YanYi/Desktop/PublicPodsCode/JPushApiManager/libs/libjpush-ios-3.1.2.a (4 slices)</code></pre><p>  顺着 <code>missing required architecture i386 in file</code> 的提示，可以大致知道该库<strong>在i386环境下校验不通过</strong>，到网上一找，崩溃。。。原来，<strong>你只要确定第三方库没问题，还有可以跳过相应平台校验</strong>这一说的：</p><p>  <strong>那么照着来吧!</strong></p><ul><li><p>终端输入如下命令找到cocoapods的安装位置</p><pre><code>$ gem which cocoapods</code></pre><ul><li><p>得到提示:</p><pre><code>$ /usr/local/lib/ruby/gems/2.3.0/gems/cocoapods-1.5.3/lib/cocoapods.rb</code></pre></li></ul></li></ul><ul><li><p>进入到 <code>/usr/local/lib/ruby/gems/2.3.0/gems/cocoapods-1.5.3/lib/</code>目录下找到并打开 <code>validator.rb</code> 文件，找到如下代码:</p><pre><code># @return [String] Executes xcodebuild in the current working directory and#         returns its output (both STDOUT and STDERR).#def xcodebuild(action, scheme, configuration)    require &apos;fourflusher&apos;    command = %W(clean #{action} -workspace #{File.join(validation_dir, &apos;App.xcworkspace&apos;)} -scheme #{scheme} -configuration #{configuration})    case consumer.platform_name    when :osx, :macos        command += %w(CODE_SIGN_IDENTITY=)    when :ios        command += %w(CODE_SIGN_IDENTITY=- -sdk iphonesimulator)        command += Fourflusher::SimControl.new.destination(:oldest, &apos;iOS&apos;, deployment_target)        #        command += %w(--help)    when :watchos        command += %w(CODE_SIGN_IDENTITY=- -sdk watchsimulator)        command += Fourflusher::SimControl.new.destination(:oldest, &apos;watchOS&apos;, deployment_target)    when :tvos        command += %w(CODE_SIGN_IDENTITY=- -sdk appletvsimulator)        command += Fourflusher::SimControl.new.destination(:oldest, &apos;tvOS&apos;, deployment_target)    end    begin        _xcodebuild(command, true)        rescue =&gt; e        message = &apos;Returned an unsuccessful exit code.&apos;        message += &apos; You can use `--verbose` for more information.&apos; unless config.verbose?        error(&apos;xcodebuild&apos;, message)        e.message    endend</code></pre></li></ul><p>将如下两行代码注掉</p><pre><code>when :ios    command += %w(CODE_SIGN_IDENTITY=- -sdk iphonesimulator)    command += Fourflusher::SimControl.new.destination(:oldest, &apos;iOS&apos;, deployment_target)</code></pre><p>改成如下代码即可:</p><pre><code>command += %w(--help)</code></pre><p><strong>该做法直接跳过了iOS平台的校验</strong>，不会再出现报错，但相应的，你的代码<strong>如果真的有错误也不会提示</strong>，所以需要<strong>确保自己的代码没问题</strong>再来修改这个地方。</p>]]></content>
+    
+    <summary type="html">
+    
+      创建自己的pod库的时候，有时候也会应用第三方静态库，但是有些第三方静态库不支持i386编译环境，该如何避免校验不通过的问题呢？
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
+    
+      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+      <category term="静态库" scheme="http://yoursite.com/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
+    
+      <category term="i386" scheme="http://yoursite.com/tags/i386/"/>
+    
+  </entry>
   
   <entry>
     <title>导入、更新TencentOpenApi 运行报错</title>
@@ -110,8 +166,8 @@
   
   <entry>
     <title>未能完成该操作。协议错误 （NSPOSIXErrorDomain Code=100）</title>
-    <link href="http://yoursite.com/2018/10/22/OC%20%E4%B8%8E%20JS%20%E4%BA%A4%E4%BA%92/HTTPS%E7%BD%91%E9%A1%B5%E5%9C%A8iPhone%E5%92%8CSafari%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E4%B8%8D%E5%BC%80%EF%BC%8C%E4%BD%86%E6%98%AF%E5%AE%89%E5%8D%93%E5%92%8C%E5%85%B6%E4%BB%96%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AF%E4%BB%A5%E6%89%93%E5%BC%80/"/>
-    <id>http://yoursite.com/2018/10/22/OC 与 JS 交互/HTTPS网页在iPhone和Safari浏览器打不开，但是安卓和其他浏览器可以打开/</id>
+    <link href="http://yoursite.com/2018/10/22/OC%E4%B8%8EJS%20%E4%BA%A4%E4%BA%92/HTTPS%E7%BD%91%E9%A1%B5%E5%9C%A8iPhone%E5%92%8CSafari%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E4%B8%8D%E5%BC%80%EF%BC%8C%E4%BD%86%E6%98%AF%E5%AE%89%E5%8D%93%E5%92%8C%E5%85%B6%E4%BB%96%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8F%AF%E4%BB%A5%E6%89%93%E5%BC%80/"/>
+    <id>http://yoursite.com/2018/10/22/OC与JS 交互/HTTPS网页在iPhone和Safari浏览器打不开，但是安卓和其他浏览器可以打开/</id>
     <published>2018-10-21T16:00:00.000Z</published>
     <updated>2018-10-22T06:09:09.257Z</updated>
     
@@ -154,8 +210,8 @@
   
   <entry>
     <title>WKWebView 与 UIWebView 实现 OC与JS交互</title>
-    <link href="http://yoursite.com/2018/08/28/OC%20%E4%B8%8E%20JS%20%E4%BA%A4%E4%BA%92/UIWebView%20%E5%AE%9E%E7%8E%B0%20OC%E4%B8%8EJS%E4%BA%A4%E4%BA%92/"/>
-    <id>http://yoursite.com/2018/08/28/OC 与 JS 交互/UIWebView 实现 OC与JS交互/</id>
+    <link href="http://yoursite.com/2018/08/28/OC%E4%B8%8EJS%20%E4%BA%A4%E4%BA%92/UIWebView%20%E5%AE%9E%E7%8E%B0%20OC%E4%B8%8EJS%E4%BA%A4%E4%BA%92/"/>
+    <id>http://yoursite.com/2018/08/28/OC与JS 交互/UIWebView 实现 OC与JS交互/</id>
     <published>2018-08-27T16:00:00.000Z</published>
     <updated>2018-09-10T12:55:49.642Z</updated>
     
@@ -278,9 +334,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
-    
       <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    
+      <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
     
       <category term="多target" scheme="http://yoursite.com/tags/%E5%A4%9Atarget/"/>
     
@@ -312,8 +368,8 @@
   
   <entry>
     <title>iOS 10.3 UILabel 中划线无效</title>
-    <link href="http://yoursite.com/2018/05/15/iOS%2010%20%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
-    <id>http://yoursite.com/2018/05/15/iOS 10 适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
+    <link href="http://yoursite.com/2018/05/15/iOS10%E9%80%82%E9%85%8D%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/iOS%2010.3%20UILabel%20%E5%88%A0%E9%99%A4%E7%BA%BF%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2018/05/15/iOS10适配问题汇总/iOS 10.3 UILabel 删除线问题/</id>
     <published>2018-05-15T13:36:43.000Z</published>
     <updated>2018-08-01T12:05:55.915Z</updated>
     
@@ -358,9 +414,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
-    
       <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
