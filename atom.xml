@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-21T08:47:58.009Z</updated>
+  <updated>2019-02-20T06:25:04.811Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS开发|数据驱动UI实践-tableView多级菜单的解决思路</title>
+    <link href="http://yoursite.com/2019/02/20/TableView/iOS%E5%BC%80%E5%8F%91%7C%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8UI%E5%AE%9E%E8%B7%B5-tableView%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95%E7%9A%84%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF/"/>
+    <id>http://yoursite.com/2019/02/20/TableView/iOS开发|数据驱动UI实践-tableView多级菜单的解决思路/</id>
+    <published>2019-02-19T16:00:00.000Z</published>
+    <updated>2019-02-20T06:25:04.811Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于“一一对应”的一些思考"><a href="#关于“一一对应”的一些思考" class="headerlink" title="关于“一一对应”的一些思考"></a>关于“一一对应”的一些思考</h2><ul><li><strong>tableView中数据与UI的关系</strong></li></ul><p>平时 ，我们的tableView需要展示多少TableViewCell，展示何种TableViewCell，都是由我们的数据来决定的，正常来说，<strong>我们的DataSource里面有多少个数据，就显示多少个cell，有多少种data就显示多少种cell，这是正常的一一对应关系，</strong>也有极少数开发者将数据与cell形成一对多的映射关系，这种做法在模块内容易造成耦合过高，通常来说不被提倡，我们只讨论一一对应的关系。</p><h3 id="数据与UI的一一对应映射模拟"><a href="#数据与UI的一一对应映射模拟" class="headerlink" title="数据与UI的一一对应映射模拟"></a><strong>数据与UI的一一对应映射模拟</strong></h3><ul><li><strong>假设我们初始的模拟数据为全部一级菜单:[[1],[1],[1],[1],[1]]</strong></li></ul><table><thead><tr><th>section</th><th>row</th><th>dataSource</th><th>tableViewCell</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>1</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>2</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>3</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>4</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr></tbody></table><ul><li><strong>当我门点击第三组的一级菜单的时候，就会打开第三组的二级菜单:[[1],[1],[1,2],[1],[1]]</strong>，即在第三组数据中加入二级菜单的数据，然后刷新UI:</li></ul><table><thead><tr><th>section</th><th>row</th><th>dataSource</th><th>tableViewCell</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>1</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>2</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td><mark>2</mark></td><td><mark>1</mark></td><td><mark>二级菜单数据</mark></td><td><mark>二级菜单cell</mark></td><td></td></tr><tr><td>3</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>4</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr></tbody></table><ul><li><strong>当我门点击第三组的二级菜单的时候，就会打开第三组的三级级菜单:[[1],[1],[1,2,3],[1],[1]]</strong>，即在第三组数据中加入三级级菜单的数据，然后刷新UI:</li></ul><table><thead><tr><th>section</th><th>row</th><th>dataSource</th><th>tableViewCell</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>1</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>2</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td><mark>2</mark></td><td><mark>1</mark></td><td><mark>二级菜单数据</mark></td><td><mark>二级菜单cell</mark></td><td></td></tr><tr><td><mark>2</mark></td><td><mark>2</mark></td><td><mark>三级菜单数据</mark></td><td><mark>三级菜单cell</mark></td><td></td></tr><tr><td>3</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr><tr><td>4</td><td>0</td><td>一级菜单数据</td><td>一级菜单cell</td><td></td></tr></tbody></table>]]></content>
+    
+    <summary type="html">
+    
+      iOS开发|数据驱动UI实践-tableView多级菜单的解决思路|数据与UI一一对应关系的思考
+    
+    </summary>
+    
+      <category term="编程" scheme="http://yoursite.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="TableView" scheme="http://yoursite.com/tags/TableView/"/>
+    
+      <category term="数据驱动UI" scheme="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E9%A9%B1%E5%8A%A8UI/"/>
+    
+  </entry>
   
   <entry>
     <title>通过cocoapods管理项目中的极光推送业务</title>
@@ -36,9 +60,9 @@
     
       <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
     
-      <category term="极光推送" scheme="http://yoursite.com/tags/%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81/"/>
-    
       <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
+    
+      <category term="极光推送" scheme="http://yoursite.com/tags/%E6%9E%81%E5%85%89%E6%8E%A8%E9%80%81/"/>
     
   </entry>
   
@@ -62,9 +86,9 @@
     
       <category term="cocoapods" scheme="http://yoursite.com/tags/cocoapods/"/>
     
-      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
-    
       <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
     
       <category term="静态库" scheme="http://yoursite.com/tags/%E9%9D%99%E6%80%81%E5%BA%93/"/>
     
@@ -334,9 +358,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
-    
       <category term="坑" scheme="http://yoursite.com/tags/%E5%9D%91/"/>
+    
+      <category term="组件化" scheme="http://yoursite.com/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/"/>
     
       <category term="多target" scheme="http://yoursite.com/tags/%E5%A4%9Atarget/"/>
     
@@ -414,9 +438,9 @@
     
       <category term="iOS开发" scheme="http://yoursite.com/tags/iOS%E5%BC%80%E5%8F%91/"/>
     
-      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
-    
       <category term="NSString" scheme="http://yoursite.com/tags/NSString/"/>
+    
+      <category term="小优化" scheme="http://yoursite.com/tags/%E5%B0%8F%E4%BC%98%E5%8C%96/"/>
     
       <category term="kCFNumberFormatterCurrencyStyle" scheme="http://yoursite.com/tags/kCFNumberFormatterCurrencyStyle/"/>
     
